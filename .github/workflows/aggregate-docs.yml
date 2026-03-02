@@ -24,7 +24,7 @@ jobs:
           set -euo pipefail
 
           # Save base repo files from main before switching branches
-          cp mint.json /tmp/base-mint.json
+          cp docs.json /tmp/base-docs.json
           cp introduction.mdx /tmp/base-introduction.mdx
           cp -r images /tmp/base-images
 
@@ -39,11 +39,12 @@ jobs:
           rm -rf screen-print-pro kata
 
           # Always refresh base files from main
-          cp /tmp/base-mint.json mint.json
+          cp /tmp/base-docs.json docs.json
+          rm -f mint.json  # Remove deprecated config if it exists
           cp /tmp/base-introduction.mdx introduction.mdx
           cp -r /tmp/base-images/* images/
 
-          # Copy print-4ink docs (from docs-site/ subdirectory)
+          # --- Screen Print Pro ---
           cp -r /tmp/print-4ink/docs-site screen-print-pro
 
           # Resolve symlinks — print-4ink uses symlinks to docs/ outside docs-site/
@@ -55,15 +56,100 @@ jobs:
             fi
           done
 
-          # Remove print-4ink's local docs.json (we use the base repo's config)
+          # Remove print-4ink's local config files (we use the base repo's docs.json)
           rm -f screen-print-pro/docs.json screen-print-pro/mint.json
 
-          # Copy kata docs (entire repo minus .git and non-doc files)
+          # --- Kata ---
           mkdir -p kata
-          cp -r /tmp/kata/docs /tmp/kata/skill /tmp/kata/changelog.md /tmp/kata/CONTRIBUTING.md kata/ 2>/dev/null || true
+          cp -r /tmp/kata/docs /tmp/kata/skill kata/ 2>/dev/null || true
+
+          # Copy and rename kata's changelog (Mintlify reserves the "changelog" route)
+          if [ -f /tmp/kata/changelog.md ]; then
+            cp /tmp/kata/changelog.md kata/release-history.md
+          fi
+
+          # Delete template files — they contain {placeholder} patterns that
+          # cannot be escaped without breaking their purpose as copy-paste templates
+          rm -f kata/docs/methodology/templates/breadboard-template.md
+          rm -f kata/docs/methodology/templates/frame-template.md
+          rm -f kata/docs/methodology/templates/shaping-template.md
+          rm -f kata/docs/methodology/templates/execution-manifest-template.yaml
+          rmdir kata/docs/methodology/templates 2>/dev/null || true
 
           echo "=== Aggregated structure ==="
-          find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -60
+          find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -80
+
+      - name: Post-process MDX compatibility
+        run: |
+          set -euo pipefail
+
+          # Mintlify treats all .md files as MDX. Characters < and { outside
+          # code blocks and inline code are parsed as JSX and cause fatal errors.
+          # This step escapes them and ensures YAML frontmatter exists on every file.
+
+          find screen-print-pro kata -name '*.md' -type f | while read -r file; do
+
+            content=$(<"$file")
+
+            # --- Add frontmatter if missing ---
+            if ! echo "$content" | head -1 | grep -q '^---$'; then
+              title=$(echo "$content" | grep -m1 '^# ' | sed 's/^# //' || true)
+              if [ -z "$title" ]; then
+                title=$(basename "$file" .md | sed 's/-/ /g')
+              fi
+              # Escape single quotes in title for YAML
+              title=$(echo "$title" | sed "s/'/''/g")
+              printf -- "---\ntitle: '%s'\n---\n\n%s\n" "$title" "$content" > "$file"
+              content=$(<"$file")
+            fi
+
+            # --- Escape MDX-breaking characters outside code blocks ---
+            # awk tracks fenced code blocks (``` ... ```) and inline code (`...`)
+            # Only escapes < { } in prose text, leaving code untouched.
+            echo "$content" | awk '
+              /^```/ { in_code = !in_code }
+              !in_code {
+                line = $0
+                result = ""
+                # Process inline code spans — leave their content untouched
+                while (match(line, /`[^`]*`/)) {
+                  prefix = substr(line, 1, RSTART - 1)
+                  code_span = substr(line, RSTART, RLENGTH)
+                  line = substr(line, RSTART + RLENGTH)
+                  # Protect already-escaped sequences
+                  gsub(/\\{/, "\x01", prefix)
+                  gsub(/\\}/, "\x02", prefix)
+                  gsub(/\\</, "\x03", prefix)
+                  # Escape bare MDX characters
+                  gsub(/{/, "\\{", prefix)
+                  gsub(/}/, "\\}", prefix)
+                  gsub(/</, "\\<", prefix)
+                  # Restore already-escaped (they stay single-escaped)
+                  gsub(/\x01/, "\\{", prefix)
+                  gsub(/\x02/, "\\}", prefix)
+                  gsub(/\x03/, "\\<", prefix)
+                  result = result prefix code_span
+                }
+                # Process remaining text after last inline code span
+                gsub(/\\{/, "\x01", line)
+                gsub(/\\}/, "\x02", line)
+                gsub(/\\</, "\x03", line)
+                gsub(/{/, "\\{", line)
+                gsub(/}/, "\\}", line)
+                gsub(/</, "\\<", line)
+                gsub(/\x01/, "\\{", line)
+                gsub(/\x02/, "\\}", line)
+                gsub(/\x03/, "\\<", line)
+                print result line
+                next
+              }
+              { print }
+            ' > "${file}.tmp"
+
+            mv "${file}.tmp" "$file"
+          done
+
+          echo "=== MDX post-processing complete ==="
 
       - name: Commit and push
         env:
