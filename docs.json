@@ -38,7 +38,6 @@
           {
             "group": "Roadmap",
             "pages": [
-              "screen-print-pro/product/roadmap",
               "screen-print-pro/roadmap/phase-2",
               "screen-print-pro/roadmap/projects"
             ]
@@ -51,7 +50,8 @@
               "screen-print-pro/research/quoting-pricing",
               "screen-print-pro/research/production-workflow",
               "screen-print-pro/research/customer-portal",
-              "screen-print-pro/research/infrastructure-decisions"
+              "screen-print-pro/research/infrastructure-decisions",
+              "screen-print-pro/research/artwork-management"
             ]
           }
         ]
