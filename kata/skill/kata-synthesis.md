@@ -1,3 +1,7 @@
+---
+title: 'kata-synthesis — LLM Synthesis of Cycle Learnings'
+---
+
 # kata-synthesis — LLM Synthesis of Cycle Learnings
 
 > How to drive kata's synthesis pipeline: preparing a synthesis input, running LLM analysis, and completing a cycle with accepted proposals.

@@ -92,7 +92,7 @@
       "pages": [
         "screen-print-pro/process/how-we-work",
         "screen-print-pro/process/pm",
-        "screen-print-pro/process/changelog/changelog"
+        "screen-print-pro/process/releases"
       ]
     },
     {
@@ -182,8 +182,7 @@
     {
       "group": "Kata Project",
       "pages": [
-        "kata/changelog",
-        "kata/CONTRIBUTING"
+        "kata/release-history"
       ]
     }
   ],

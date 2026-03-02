@@ -1,3 +1,7 @@
+---
+title: 'Artifact Record Format — Examples'
+---
+
 # Artifact Record Format — Examples
 
 > Use `kata artifact record <run-id>` to record every file produced during a run.

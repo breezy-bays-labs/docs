@@ -1,3 +1,7 @@
+---
+title: 'Kata Classification — Bet and Stage Classification'
+---
+
 # Kata Classification — Bet and Stage Classification
 
 > **Deferred to Wave D (issue #106).** This file is a placeholder.

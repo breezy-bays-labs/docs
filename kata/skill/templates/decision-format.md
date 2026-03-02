@@ -1,3 +1,7 @@
+---
+title: 'Decision Record Format — Examples'
+---
+
 # Decision Record Format — Examples
 
 > Use `kata decision record <run-id>` to record every orchestration judgment.
