@@ -23,6 +23,11 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Save base repo files from main before switching branches
+          cp mint.json /tmp/base-mint.json
+          cp introduction.mdx /tmp/base-introduction.mdx
+          cp -r images /tmp/base-images
+
           # Clone source repos (shallow, public — token used for push only)
           git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
           git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
@@ -30,8 +35,13 @@ jobs:
           # Prepare the docs branch
           git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
 
-          # Clean existing aggregated content (preserve base repo files)
+          # Clean existing aggregated content
           rm -rf screen-print-pro kata
+
+          # Always refresh base files from main
+          cp /tmp/base-mint.json mint.json
+          cp /tmp/base-introduction.mdx introduction.mdx
+          cp -r /tmp/base-images/* images/
 
           # Copy print-4ink docs (from docs-site/ subdirectory)
           cp -r /tmp/print-4ink/docs-site screen-print-pro
