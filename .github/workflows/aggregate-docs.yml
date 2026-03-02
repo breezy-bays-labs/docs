@@ -24,7 +24,7 @@ jobs:
 
       - name: Aggregate docs from all repos
         # Pinned to main — includes docs.json support (not yet in v0.16 release)
-        uses: mintlify/multirepo-action@2a8d086
+        uses: mintlify/multirepo-action@2a8d0867b0cffdafe0959d1d9c497cba48987110
         with:
           token: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
           target-branch: docs
