@@ -59,9 +59,16 @@ jobs:
           # Remove print-4ink's local config files (we use the base repo's docs.json)
           rm -f screen-print-pro/docs.json screen-print-pro/mint.json
 
+          # Rename changelog (Mintlify reserves the "changelog" route)
+          if [ -f screen-print-pro/process/changelog/changelog.md ]; then
+            mv screen-print-pro/process/changelog/changelog.md screen-print-pro/process/releases.md
+            rm -rf screen-print-pro/process/changelog
+          fi
+
           # --- Kata ---
           mkdir -p kata
           cp -r /tmp/kata/docs /tmp/kata/skill kata/ 2>/dev/null || true
+          # Skip CONTRIBUTING.md (not in navigation, case-sensitive path issues)
 
           # Copy and rename kata's changelog (Mintlify reserves the "changelog" route)
           if [ -f /tmp/kata/changelog.md ]; then
