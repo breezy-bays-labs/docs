@@ -1,19 +1,12 @@
 name: Aggregate Docs
 
 on:
-  # Run when base repo changes
   push:
     branches: [main]
-
-  # Run when source repos notify us
   repository_dispatch:
     types: [docs-updated]
-
-  # Daily sync as safety net
   schedule:
     - cron: '0 6 * * *'
-
-  # Manual trigger
   workflow_dispatch:
 
 jobs:
@@ -22,17 +15,60 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Aggregate docs from all repos
-        # v0.16 expects mint.json (old name). Upgrade when docs.json support is released.
-        uses: mintlify/multirepo-action@v0.16
-        with:
-          token: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
-          target-branch: docs
-          repos: |
-            - owner: cmbays
-              repo: print-4ink
-              subdirectory: docs-site
-              path: screen-print-pro
-            - owner: cmbays
-              repo: kata
-              path: kata
+      - name: Aggregate docs from source repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # Clone source repos (shallow, public — token used for push only)
+          git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
+          git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
+
+          # Prepare the docs branch
+          git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
+
+          # Clean existing aggregated content (preserve base repo files)
+          rm -rf screen-print-pro kata
+
+          # Copy print-4ink docs (from docs-site/ subdirectory)
+          cp -r /tmp/print-4ink/docs-site screen-print-pro
+
+          # Resolve symlinks — print-4ink uses symlinks to docs/ outside docs-site/
+          find screen-print-pro -type l | while read link; do
+            target=$(readlink -f "/tmp/print-4ink/docs-site/$(echo "$link" | sed 's|^screen-print-pro/||')" 2>/dev/null || true)
+            if [ -f "$target" ]; then
+              rm "$link"
+              cp "$target" "$link"
+            fi
+          done
+
+          # Remove print-4ink's local docs.json (we use the base repo's config)
+          rm -f screen-print-pro/docs.json screen-print-pro/mint.json
+
+          # Copy kata docs (entire repo minus .git and non-doc files)
+          mkdir -p kata
+          cp -r /tmp/kata/docs /tmp/kata/skill /tmp/kata/changelog.md /tmp/kata/CONTRIBUTING.md kata/ 2>/dev/null || true
+
+          echo "=== Aggregated structure ==="
+          find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -60
+
+      - name: Commit and push
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes detected, skipping push."
+            exit 0
+          fi
+
+          git config user.name "Docs Bot"
+          git config user.email "docs-bot@breezybayslabs.com"
+          git commit -m "docs: aggregate from source repos ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+
+          # Push using the PAT for authentication
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/breezy-bays-labs/docs.git"
+          git push origin docs
