@@ -1,6 +1,5 @@
 ---
-title: 'Project Management'
-description: 'PM workflows, labels, templates, and tracking conventions.'
+title: 'Project Management — PM.md'
 ---
 
 # Project Management — PM.md

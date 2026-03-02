@@ -330,13 +330,13 @@ Record an orchestration decision for observability and self-improvement.
 - `--context <json>` — JSON object with contextual snapshot at decision time
 - `--options <json>` — JSON array of strings (the options considered)
 - `--selected <option>` — the chosen option (must be in `--options` unless options is `[]`)
-- `--confidence \<0-1>` — confidence in the choice; below threshold (default 0.7) creates a confidence gate
+- `--confidence <0-1>` — confidence in the choice; below threshold (default 0.7) creates a confidence gate
 - `--reasoning <text>` — why this option was chosen
 
 **Optional flags**:
 - `--flavor <name>` — flavor context (omit for stage-level decisions)
 - `--step <name>` — step context (omit for flavor/stage-level decisions)
-- `--yolo` — bypass confidence gate even if confidence < threshold
+- `--yolo` — bypass confidence gate even if confidence \< threshold
 
 **Example**:
 ```bash

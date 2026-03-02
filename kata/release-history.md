@@ -88,4 +88,3 @@ description: Release history for Kata (@withkata/core)
 - Make AdapterResolver.resolve() a static method ([#20](https://github.com/cmbays/kata/issues/20)) ([#31](https://github.com/cmbays/kata/issues/31))
 - Rename Stage → Step across the codebase (fixes #36)
 - FlavorValidationResult discriminated union + StepResolver FlavorStepRef (#64, #65) ([#92](https://github.com/cmbays/kata/issues/92))
-

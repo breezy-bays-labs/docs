@@ -67,7 +67,7 @@ kata decision record "$RUN_ID" \
   --reasoning "Found OAuth2 library but no PKCE implementation. Cannot confirm PKCE is supported without deeper code search."
 ```
 
-This will create a **confidence gate** because 0.55 < 0.7 (default threshold). `kata step next --json` will return `status: "waiting"` until approved.
+This will create a **confidence gate** because 0.55 \< 0.7 (default threshold). `kata step next --json` will return `status: "waiting"` until approved.
 
 To bypass the gate (if the uncertainty is acceptable and you want to continue):
 ```bash

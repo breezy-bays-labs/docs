@@ -76,7 +76,7 @@ Gaps are bridged by creating new flavors, steps, or skill files:
    kata observe record \
      --type learning \
      --subject "Rust async: prefer tokio for web services" \
-     --references-gap <gap-id>
+     --references-gap \<gap-id>
    ```
 
 ---

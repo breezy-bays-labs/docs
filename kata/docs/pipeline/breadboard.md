@@ -1,4 +1,8 @@
 ---
+title: 'kata — Breadboard'
+---
+
+---
 shaping: true
 ---
 

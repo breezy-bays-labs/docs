@@ -33,8 +33,8 @@ Journeys are organized by **capability domain** — the high-level goal the user
 
 **Acceptance Criteria**:
 
-- Customer record created in < 30 seconds
-- Quote built with real garment data and live pricing in < 3 minutes
+- Customer record created in \< 30 seconds
+- Quote built with real garment data and live pricing in \< 3 minutes
 - Quote saved, visible on board, and sendable to customer
 
 #### Steps
@@ -79,7 +79,7 @@ Journeys are organized by **capability domain** — the high-level goal the user
 
 **Acceptance Criteria**:
 
-- Shop state understood in < 5 seconds without scrolling
+- Shop state understood in \< 5 seconds without scrolling
 - Blocked jobs visible with reasons and customer contact info
 - At-risk jobs (approaching due date) flagged
 
@@ -98,7 +98,7 @@ Journeys are organized by **capability domain** — the high-level goal the user
 
 **Acceptance Criteria**:
 
-- Customer found in < 5 seconds
+- Customer found in \< 5 seconds
 - Previous quotes visible for reference
 - New quote built by cloning/modifying previous quote
 
@@ -138,7 +138,7 @@ Journeys are organized by **capability domain** — the high-level goal the user
 
 ### US-3: New Customer Inquiry
 
-**As a** shop owner, **I want to** capture a new customer's info in < 30 seconds **so that** I can start building their quote while still on the phone.
+**As a** shop owner, **I want to** capture a new customer's info in \< 30 seconds **so that** I can start building their quote while still on the phone.
 
 ### US-5: Screen Print Quote
 

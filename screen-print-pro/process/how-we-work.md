@@ -1,6 +1,5 @@
 ---
 title: 'How We Work'
-description: 'Methodology, tooling philosophy, and automation trajectory.'
 ---
 
 # How We Work

@@ -1,4 +1,8 @@
 ---
+title: 'Breadboarding'
+---
+
+---
 name: breadboarding
 description: >
   Transform shaped parts or existing systems into affordance tables showing UI and Code
