@@ -11,6 +11,22 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Breezy Bays Labs",
+        "groups": [
+          {
+            "group": "Philosophy",
+            "pages": [
+              "breezy-bays-labs/identity",
+              "breezy-bays-labs/engineering",
+              "breezy-bays-labs/design",
+              "breezy-bays-labs/quality",
+              "breezy-bays-labs/process",
+              "breezy-bays-labs/decisions"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Screen Print Pro",
         "groups": [
           {
@@ -35,30 +51,6 @@
               "screen-print-pro/product/domain-glossary"
             ]
           },
-          {
-            "group": "Roadmap",
-            "pages": [
-              "screen-print-pro/roadmap/phase-2",
-              "screen-print-pro/roadmap/projects"
-            ]
-          },
-          {
-            "group": "Research",
-            "pages": [
-              "screen-print-pro/research/competitive-analysis",
-              "screen-print-pro/research/supplier-catalog",
-              "screen-print-pro/research/quoting-pricing",
-              "screen-print-pro/research/production-workflow",
-              "screen-print-pro/research/customer-portal",
-              "screen-print-pro/research/infrastructure-decisions",
-              "screen-print-pro/research/artwork-management"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Engineering",
-        "groups": [
           {
             "group": "Architecture",
             "pages": [
@@ -86,23 +78,37 @@
               "screen-print-pro/engineering/guides/app-flow-standard",
               "screen-print-pro/engineering/guides/ss-api-reference"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Process",
-        "groups": [
+          },
           {
-            "group": "How We Work",
+            "group": "Process",
             "pages": [
               "screen-print-pro/process/how-we-work",
               "screen-print-pro/process/pm"
             ]
           },
           {
-            "group": "Changelog",
+            "group": "Releases",
             "pages": [
               "screen-print-pro/process/releases"
+            ]
+          },
+          {
+            "group": "Roadmap",
+            "pages": [
+              "screen-print-pro/roadmap/phase-2",
+              "screen-print-pro/roadmap/projects"
+            ]
+          },
+          {
+            "group": "Research",
+            "pages": [
+              "screen-print-pro/research/competitive-analysis",
+              "screen-print-pro/research/supplier-catalog",
+              "screen-print-pro/research/quoting-pricing",
+              "screen-print-pro/research/production-workflow",
+              "screen-print-pro/research/customer-portal",
+              "screen-print-pro/research/infrastructure-decisions",
+              "screen-print-pro/research/artwork-management"
             ]
           }
         ]

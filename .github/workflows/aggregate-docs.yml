@@ -27,6 +27,10 @@ jobs:
           cp docs.json /tmp/base-docs.json
           cp introduction.mdx /tmp/base-introduction.mdx
           cp -r images /tmp/base-images
+          # Org-level philosophy docs (authored in the docs repo, not aggregated)
+          if [ -d breezy-bays-labs ]; then
+            cp -r breezy-bays-labs /tmp/base-breezy-bays-labs
+          fi
 
           # Clone source repos (shallow, public — token used for push only)
           git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
@@ -36,13 +40,17 @@ jobs:
           git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
 
           # Clean existing aggregated content
-          rm -rf screen-print-pro kata
+          rm -rf screen-print-pro kata breezy-bays-labs
 
           # Always refresh base files from main
           cp /tmp/base-docs.json docs.json
           rm -f mint.json  # Remove deprecated config if it exists
           cp /tmp/base-introduction.mdx introduction.mdx
           cp -r /tmp/base-images/* images/
+          # Restore org-level docs from main
+          if [ -d /tmp/base-breezy-bays-labs ]; then
+            cp -r /tmp/base-breezy-bays-labs breezy-bays-labs
+          fi
 
           # --- Screen Print Pro ---
           cp -r /tmp/print-4ink/docs-site screen-print-pro
@@ -94,7 +102,7 @@ jobs:
           # code blocks and inline code are parsed as JSX and cause fatal errors.
           # This step escapes them and ensures YAML frontmatter exists on every file.
 
-          find screen-print-pro kata -name '*.md' -type f | while read -r file; do
+          find screen-print-pro kata breezy-bays-labs -name '*.md' -type f | while read -r file; do
 
             content=$(<"$file")
 
