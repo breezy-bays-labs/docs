@@ -23,8 +23,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Aggregate docs from all repos
-        # Pinned to main — includes docs.json support (not yet in v0.16 release)
-        uses: mintlify/multirepo-action@2a8d0867b0cffdafe0959d1d9c497cba48987110
+        # v0.16 expects mint.json (old name). Upgrade when docs.json support is released.
+        uses: mintlify/multirepo-action@v0.16
         with:
           token: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
           target-branch: docs
