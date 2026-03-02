@@ -1,0 +1,37 @@
+name: Aggregate Docs
+
+on:
+  # Run when base repo changes
+  push:
+    branches: [main]
+
+  # Run when source repos notify us
+  repository_dispatch:
+    types: [docs-updated]
+
+  # Daily sync as safety net
+  schedule:
+    - cron: '0 6 * * *'
+
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Aggregate docs from all repos
+        uses: mintlify/multirepo-action@v0.15
+        with:
+          token: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
+          target-branch: docs
+          repos: |
+            - owner: cmbays
+              repo: print-4ink
+              subdirectory: docs-site
+              path: screen-print-pro
+            - owner: cmbays
+              repo: kata
+              path: kata
