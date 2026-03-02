@@ -1,6 +1,5 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
   "name": "Breezy Bays Labs",
   "colors": {
     "primary": "#2ab9ff",
@@ -8,216 +7,195 @@
     "light": "#f5f5f5"
   },
   "favicon": "/images/favicon.svg",
-  "navbar": {
-    "links": [
-      {
-        "label": "GitHub",
-        "href": "https://github.com/breezy-bays-labs"
-      }
-    ]
-  },
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Home",
-        "groups": [
-          {
-            "group": "Breezy Bays Labs",
-            "pages": [
-              "introduction"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Screen Print Pro",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "screen-print-pro/introduction",
-              "screen-print-pro/product/product-design",
-              "screen-print-pro/product/prd"
-            ]
-          },
-          {
-            "group": "User Experience",
-            "pages": [
-              "screen-print-pro/product/user-journeys",
-              "screen-print-pro/product/interaction-design",
-              "screen-print-pro/product/design-vision"
-            ]
-          },
-          {
-            "group": "Domain",
-            "pages": [
-              "screen-print-pro/product/domain-glossary"
-            ]
-          },
-          {
-            "group": "Roadmap",
-            "pages": [
-              "screen-print-pro/product/roadmap",
-              "screen-print-pro/roadmap/phase-2",
-              "screen-print-pro/roadmap/projects"
-            ]
-          },
-          {
-            "group": "Research",
-            "pages": [
-              "screen-print-pro/research/competitive-analysis",
-              "screen-print-pro/research/supplier-catalog",
-              "screen-print-pro/research/quoting-pricing",
-              "screen-print-pro/research/production-workflow",
-              "screen-print-pro/research/customer-portal",
-              "screen-print-pro/research/infrastructure-decisions"
-            ]
-          },
-          {
-            "group": "Architecture",
-            "pages": [
-              "screen-print-pro/engineering/architecture/tech-stack",
-              "screen-print-pro/engineering/architecture/system-architecture",
-              "screen-print-pro/engineering/architecture/app-flow",
-              "screen-print-pro/engineering/architecture/app-ia",
-              "screen-print-pro/engineering/architecture/ddd-strategy",
-              "screen-print-pro/engineering/architecture/infrastructure"
-            ]
-          },
-          {
-            "group": "Standards",
-            "pages": [
-              "screen-print-pro/engineering/standards/coding-standards",
-              "screen-print-pro/engineering/standards/testing-strategy",
-              "screen-print-pro/engineering/standards/design-system",
-              "screen-print-pro/engineering/standards/screen-audit",
-              "screen-print-pro/engineering/standards/ux-heuristics"
-            ]
-          },
-          {
-            "group": "Guides",
-            "pages": [
-              "screen-print-pro/engineering/guides/app-flow-standard",
-              "screen-print-pro/engineering/guides/ss-api-reference"
-            ]
-          },
-          {
-            "group": "Process",
-            "pages": [
-              "screen-print-pro/process/how-we-work",
-              "screen-print-pro/process/pm",
-              "screen-print-pro/process/releases"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Kata",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "kata/docs/introduction",
-              "kata/docs/project-setup"
-            ]
-          },
-          {
-            "group": "System Guide",
-            "pages": [
-              "kata/docs/kata-system-guide"
-            ]
-          },
-          {
-            "group": "Using Kata",
-            "pages": [
-              "kata/skill/skill",
-              "kata/skill/cli-reference",
-              "kata/skill/file-structure",
-              "kata/skill/dojo"
-            ]
-          },
-          {
-            "group": "For Agents",
-            "pages": [
-              "kata/skill/orchestration",
-              "kata/skill/context-flow",
-              "kata/skill/kata-orchestration",
-              "kata/skill/kata-sensei",
-              "kata/skill/kata-create-agent",
-              "kata/skill/kata-create-skill",
-              "kata/skill/kata-bridge-gap",
-              "kata/skill/kata-scan-project"
-            ]
-          },
-          {
-            "group": "Architecture",
-            "pages": [
-              "kata/docs/kataka-architecture",
-              "kata/docs/sensei-orchestration",
-              "kata/docs/meta-learning-architecture",
-              "kata/docs/dojo-architecture"
-            ]
-          },
-          {
-            "group": "Product Design",
-            "pages": [
-              "kata/docs/v1-product-design",
-              "kata/docs/v1-user-journeys",
-              "kata/docs/v1-interaction-design",
-              "kata/docs/v1-design-vision"
-            ]
-          },
-          {
-            "group": "Methodology",
-            "pages": [
-              "kata/docs/methodology/INDEX",
-              "kata/docs/methodology/how-we-work"
-            ]
-          },
-          {
-            "group": "Skills",
-            "pages": [
-              "kata/docs/methodology/skills/shaping",
-              "kata/docs/methodology/skills/breadboarding",
-              "kata/docs/methodology/skills/breadboard-reflection",
-              "kata/docs/methodology/skills/learnings-synthesis"
-            ]
-          },
-          {
-            "group": "Quick Reference",
-            "pages": [
-              "kata/docs/methodology/reference/shaping-concepts",
-              "kata/docs/methodology/reference/breadboarding-concepts",
-              "kata/docs/methodology/reference/app-flow-standard"
-            ]
-          },
-          {
-            "group": "Templates",
-            "pages": [
-              "kata/docs/methodology/templates/frame-template",
-              "kata/docs/methodology/templates/shaping-template",
-              "kata/docs/methodology/templates/breadboard-template",
-              "kata/docs/methodology/templates/execution-manifest-template"
-            ]
-          },
-          {
-            "group": "Roadmap",
-            "pages": [
-              "kata/docs/unified-roadmap",
-              "kata/docs/dogfooding-roadmap"
-            ]
-          },
-          {
-            "group": "Project",
-            "pages": [
-              "kata/changelog",
-              "kata/CONTRIBUTING"
-            ]
-          }
-        ]
-      }
-    ]
-  },
+  "tabs": [
+    { "name": "Screen Print Pro", "url": "screen-print-pro" },
+    { "name": "Kata", "url": "kata" }
+  ],
+  "navigation": [
+    {
+      "group": "Breezy Bays Labs",
+      "pages": [
+        "introduction"
+      ]
+    },
+    {
+      "group": "Overview",
+      "pages": [
+        "screen-print-pro/introduction",
+        "screen-print-pro/product/product-design",
+        "screen-print-pro/product/prd"
+      ]
+    },
+    {
+      "group": "User Experience",
+      "pages": [
+        "screen-print-pro/product/user-journeys",
+        "screen-print-pro/product/interaction-design",
+        "screen-print-pro/product/design-vision"
+      ]
+    },
+    {
+      "group": "Domain",
+      "pages": [
+        "screen-print-pro/product/domain-glossary"
+      ]
+    },
+    {
+      "group": "Roadmap",
+      "pages": [
+        "screen-print-pro/product/roadmap",
+        "screen-print-pro/roadmap/phase-2",
+        "screen-print-pro/roadmap/projects"
+      ]
+    },
+    {
+      "group": "Research",
+      "pages": [
+        "screen-print-pro/research/competitive-analysis",
+        "screen-print-pro/research/supplier-catalog",
+        "screen-print-pro/research/quoting-pricing",
+        "screen-print-pro/research/production-workflow",
+        "screen-print-pro/research/customer-portal",
+        "screen-print-pro/research/infrastructure-decisions"
+      ]
+    },
+    {
+      "group": "Architecture",
+      "pages": [
+        "screen-print-pro/engineering/architecture/tech-stack",
+        "screen-print-pro/engineering/architecture/system-architecture",
+        "screen-print-pro/engineering/architecture/app-flow",
+        "screen-print-pro/engineering/architecture/app-ia",
+        "screen-print-pro/engineering/architecture/ddd-strategy",
+        "screen-print-pro/engineering/architecture/infrastructure"
+      ]
+    },
+    {
+      "group": "Standards",
+      "pages": [
+        "screen-print-pro/engineering/standards/coding-standards",
+        "screen-print-pro/engineering/standards/testing-strategy",
+        "screen-print-pro/engineering/standards/design-system",
+        "screen-print-pro/engineering/standards/screen-audit",
+        "screen-print-pro/engineering/standards/ux-heuristics"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "screen-print-pro/engineering/guides/app-flow-standard",
+        "screen-print-pro/engineering/guides/ss-api-reference"
+      ]
+    },
+    {
+      "group": "Process",
+      "pages": [
+        "screen-print-pro/process/how-we-work",
+        "screen-print-pro/process/pm",
+        "screen-print-pro/process/releases"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "kata/docs/introduction",
+        "kata/docs/project-setup"
+      ]
+    },
+    {
+      "group": "System Guide",
+      "pages": [
+        "kata/docs/kata-system-guide"
+      ]
+    },
+    {
+      "group": "Using Kata",
+      "pages": [
+        "kata/skill/skill",
+        "kata/skill/cli-reference",
+        "kata/skill/file-structure",
+        "kata/skill/dojo"
+      ]
+    },
+    {
+      "group": "For Agents",
+      "pages": [
+        "kata/skill/orchestration",
+        "kata/skill/context-flow",
+        "kata/skill/kata-orchestration",
+        "kata/skill/kata-sensei",
+        "kata/skill/kata-create-agent",
+        "kata/skill/kata-create-skill",
+        "kata/skill/kata-bridge-gap",
+        "kata/skill/kata-scan-project"
+      ]
+    },
+    {
+      "group": "Kata Architecture",
+      "pages": [
+        "kata/docs/kataka-architecture",
+        "kata/docs/sensei-orchestration",
+        "kata/docs/meta-learning-architecture",
+        "kata/docs/dojo-architecture"
+      ]
+    },
+    {
+      "group": "Product Design",
+      "pages": [
+        "kata/docs/v1-product-design",
+        "kata/docs/v1-user-journeys",
+        "kata/docs/v1-interaction-design",
+        "kata/docs/v1-design-vision"
+      ]
+    },
+    {
+      "group": "Methodology",
+      "pages": [
+        "kata/docs/methodology/INDEX",
+        "kata/docs/methodology/how-we-work"
+      ]
+    },
+    {
+      "group": "Skills",
+      "pages": [
+        "kata/docs/methodology/skills/shaping",
+        "kata/docs/methodology/skills/breadboarding",
+        "kata/docs/methodology/skills/breadboard-reflection",
+        "kata/docs/methodology/skills/learnings-synthesis"
+      ]
+    },
+    {
+      "group": "Quick Reference",
+      "pages": [
+        "kata/docs/methodology/reference/shaping-concepts",
+        "kata/docs/methodology/reference/breadboarding-concepts",
+        "kata/docs/methodology/reference/app-flow-standard"
+      ]
+    },
+    {
+      "group": "Templates",
+      "pages": [
+        "kata/docs/methodology/templates/frame-template",
+        "kata/docs/methodology/templates/shaping-template",
+        "kata/docs/methodology/templates/breadboard-template",
+        "kata/docs/methodology/templates/execution-manifest-template"
+      ]
+    },
+    {
+      "group": "Kata Roadmap",
+      "pages": [
+        "kata/docs/unified-roadmap",
+        "kata/docs/dogfooding-roadmap"
+      ]
+    },
+    {
+      "group": "Kata Project",
+      "pages": [
+        "kata/changelog",
+        "kata/CONTRIBUTING"
+      ]
+    }
+  ],
   "footer": {
     "copyright": "Copyright 2026 Breezy Bays Labs"
   }
