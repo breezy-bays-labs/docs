@@ -1,3 +1,7 @@
+---
+title: 'Kata v1 User Journeys'
+---
+
 # Kata v1 User Journeys
 
 > User Story Map — what users can accomplish with Kata, grouped by capability. This is a living document that grows as new features ship.

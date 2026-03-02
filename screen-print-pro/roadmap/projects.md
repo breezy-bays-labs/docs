@@ -438,8 +438,8 @@ Real metrics replacing mock data. Production KPIs, revenue tracking, customer in
 - [x] **Key benchmarks discovered**:
   - Press utilization: 20-30% typical, 40% is good, rarely exceeds 50%
   - Impressions/hour: 150-400 (automatic press, depending on crew size)
-  - Setup time per screen: target <5 min, 7-9 min typical
-  - Payroll COGS: target <25% ("Rule of 25/75")
+  - Setup time per screen: target \<5 min, 7-9 min typical
+  - Payroll COGS: target \<25% ("Rule of 25/75")
   - Defect/spoilage rate: 2-3% industry standard
   - Average order value: $500-$1,000 for small shops
   - Customer concentration: 80/20 Pareto rule strongly validated
@@ -484,7 +484,7 @@ Real screen tracking linked to production jobs. Burn status, reclaim workflow, i
 - [x] **Physical workflow mapped**: 10-step preparation (degreasing → coating → drying → exposing → washout → inspection → press registration). 5-step reclaiming (ink removal → decoat → haze removal → degrease → dry). **Drying is the primary bottleneck** (1-12 hours depending on equipment).
 - [x] **Current tracking methods**: (1) Memory, (2) Whiteboards, (3) Labels on frames, (4) Spreadsheets, (5) Four-cart physical system. **No software handles this** — not Printavo, not YoPrint, not any competitor.
 - [x] **Inventory formula**: Need 4-5x daily screen count in rotation. Small shop using 15 screens/day needs 60-75 in inventory.
-- [x] **Screen lifespan**: Aluminum frames last 100-500+ reclaim cycles. Replacement triggers: tension loss (<18 N/cm), mesh damage, permanent hazing.
+- [x] **Screen lifespan**: Aluminum frames last 100-500+ reclaim cycles. Replacement triggers: tension loss (\<18 N/cm), mesh damage, permanent hazing.
 - [x] **Screen storage for repeat orders**: Shops hold burned screens 1-4 weeks for expected reorders. Some charge storage fees ($15-30/screen). This is a real workflow that needs a "stored" status.
 - [x] **Variables per screen**: Mesh count (110-305), mesh color (white/yellow), emulsion type (diazo/photopolymer/dual-cure), tension (N/cm), frame size, exposure time.
 

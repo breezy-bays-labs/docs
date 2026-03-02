@@ -1,3 +1,7 @@
+---
+title: 'Project Setup — How You Set Up and Maintain a Kata Project'
+---
+
 # Project Setup — How You Set Up and Maintain a Kata Project
 
 > KATA.md generation, init scanning, and the ongoing project context lifecycle.

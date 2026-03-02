@@ -222,7 +222,7 @@ Customer Detail (/customers/[id])
 
 #### Success State
 
-- User found job and answered customer question in <30 seconds
+- User found job and answered customer question in \<30 seconds
 
 #### Error States
 
@@ -703,7 +703,7 @@ Not applicable for Phase 1 (mock data is synchronous). Design loading skeleton p
 
 **Filter Bar**:
 
-- **Today**: Filters to cards with start date <= today and not yet done
+- **Today**: Filters to cards with start date \<= today and not yet done
 - **Service Type**: Screen Printing / DTF / Embroidery (multi-select)
 - **Section**: All / Quotes Only / Jobs Only
 - **Risk**: All / At Risk / Blocked

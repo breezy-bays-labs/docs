@@ -1,3 +1,7 @@
+---
+title: 'Kata System Guide'
+---
+
 # Kata System Guide
 
 > Living reference for how Kata works — its primitives, data flows, and the meta-learning loop that makes the system compound over time. Written for humans.

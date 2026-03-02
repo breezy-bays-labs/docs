@@ -115,7 +115,7 @@ Each vertical passes through these stages. The KB tracks progress per vertical p
 
 These are shaped ideas waiting for a betting decision:
 
-- **Artwork Library Vertical** (Epic #717) — Research complete. 7 milestones: Storage & Schema → Library UI → {Color Detection, Quote Integration, Approval Workflow} → Separation Metadata → Mockup Enhancement. Blocked by H2 (File Upload Pipeline). See `docs/workspace/20260301-artwork-vertical/research-report.md`.
+- **Artwork Library Vertical** (Epic #717) — Research complete. 7 milestones: Storage & Schema → Library UI → \{Color Detection, Quote Integration, Approval Workflow\} → Separation Metadata → Mockup Enhancement. Blocked by H2 (File Upload Pipeline). See `docs/workspace/20260301-artwork-vertical/research-report.md`.
 - **Mockup integration** — Wire garment mockup thumbnails into Quote Detail, Job Detail, Kanban Board. Auto-attach mockups to quote emails. Will be absorbed into Artwork M7.
 - **Shop floor display** — Auto-refreshing Kanban board for TV/tablet (replaces physical whiteboard)
 

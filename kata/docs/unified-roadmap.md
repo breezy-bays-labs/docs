@@ -1,3 +1,7 @@
+---
+title: 'Unified Roadmap: Kataka + Meta-Learning Integration'
+---
+
 # Unified Roadmap: Kataka + Meta-Learning Integration
 
 > Merges the [Kataka Architecture](kataka-architecture.md) and [Meta-Learning Epic (#136)](https://github.com/cmbays/kata/issues/136) into a single sequenced implementation plan.

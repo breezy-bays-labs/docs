@@ -1,3 +1,7 @@
+---
+title: 'kata-orchestration — Running Stage Orchestration'
+---
+
 # kata-orchestration — Running Stage Orchestration
 
 > How to drive kata's kiai (execute) system: stage categories, flavor selection, and pipeline execution.

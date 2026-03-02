@@ -1,3 +1,7 @@
+---
+title: 'Dojo — Personal Training Session'
+---
+
 # Dojo — Personal Training Session
 
 You are running a Dojo training session. The Dojo transforms the user's kata execution data into an interactive learning experience.

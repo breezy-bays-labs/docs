@@ -134,14 +134,14 @@ Or use Mermaid for visual representation:
 ```markdown
 ## Navigation Map
 
-​`mermaid
+```mermaid
 flowchart TD
     A[Home] -->|Click Start| B[Setup]
     B -->|Configure| C[Main View]
     C -->|Complete| D[Results]
     D -->|Reset| A
     C -->|Cancel| A
-​`
+```
 ```
 
 ### 5. State Definitions
@@ -298,7 +298,7 @@ Walk through each journey as a user would:
 
 ## Navigation Map
 
-​`mermaid
+```mermaid
 flowchart TD
     A[Closed] -->|Click gear| B[Settings List]
     B -->|Click category| C[Category Detail]
@@ -308,7 +308,7 @@ flowchart TD
     F -->|Retry| C
     C -->|Cancel| B
     B -->|Close| A
-​`
+```
 
 ## State Definitions
 

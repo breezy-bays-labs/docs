@@ -1,3 +1,7 @@
+---
+title: 'Kata v1 Design Rationale — ADR Decision Log'
+---
+
 # Kata v1 Design Rationale — ADR Decision Log
 
 > Why Kata is built the way it is — architectural trade-offs and decisions that shaped the system, in ADR format (Context → Decision → Consequences).

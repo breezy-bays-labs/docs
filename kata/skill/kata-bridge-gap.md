@@ -1,3 +1,7 @@
+---
+title: 'kata-bridge-gap — Recording and Resolving Gaps'
+---
+
 # kata-bridge-gap — Recording and Resolving Gaps
 
 > Gaps are friction points, missing capabilities, or knowledge holes captured during practice.

@@ -1,3 +1,8 @@
+---
+title: 'Project Management'
+description: 'PM workflows, labels, templates, and tracking conventions.'
+---
+
 # Project Management — PM.md
 
 > **Last Verified**: 2026-02-16

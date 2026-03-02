@@ -1,3 +1,7 @@
+---
+title: 'How We Work'
+---
+
 # How We Work
 
 > Living doc. Describes our methodology, tooling philosophy, and automation trajectory.

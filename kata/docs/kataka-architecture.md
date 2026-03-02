@@ -1,3 +1,7 @@
+---
+title: 'Kataka Architecture — Methodology-Aware AI Agents'
+---
+
 # Kataka Architecture — Methodology-Aware AI Agents
 
 > What kataka are — agent identity, the three-layer model, anatomy, ryu binding, observability, and naming conventions.

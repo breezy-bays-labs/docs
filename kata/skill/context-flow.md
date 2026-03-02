@@ -1,3 +1,7 @@
+---
+title: 'Kata Context Flow — Progressive Context Narrowing'
+---
+
 # Kata Context Flow — Progressive Context Narrowing
 
 > Context flows down the agent tree. Each tier receives what it needs — nothing more.

@@ -92,7 +92,7 @@
       "pages": [
         "screen-print-pro/process/how-we-work",
         "screen-print-pro/process/pm",
-        "screen-print-pro/process/releases"
+        "screen-print-pro/process/changelog/changelog"
       ]
     },
     {
@@ -170,15 +170,6 @@
         "kata/docs/methodology/reference/shaping-concepts",
         "kata/docs/methodology/reference/breadboarding-concepts",
         "kata/docs/methodology/reference/app-flow-standard"
-      ]
-    },
-    {
-      "group": "Templates",
-      "pages": [
-        "kata/docs/methodology/templates/frame-template",
-        "kata/docs/methodology/templates/shaping-template",
-        "kata/docs/methodology/templates/breadboard-template",
-        "kata/docs/methodology/templates/execution-manifest-template"
       ]
     },
     {

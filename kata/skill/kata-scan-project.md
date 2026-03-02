@@ -1,3 +1,7 @@
+---
+title: 'kata-scan-project — Scanning a Project for Metadata'
+---
+
 # kata-scan-project — Scanning a Project for Metadata
 
 > `kata init --scan` collects project metadata without modifying any files.

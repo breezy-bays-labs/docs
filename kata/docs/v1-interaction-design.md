@@ -1,3 +1,7 @@
+---
+title: 'Kata v1 Interaction Design'
+---
+
 # Kata v1 Interaction Design
 
 > Functional Spec — how the user interacts with Kata: orchestration flows, CLI patterns, state files, and skill package structure.

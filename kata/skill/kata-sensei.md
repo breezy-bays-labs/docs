@@ -1,3 +1,7 @@
+---
+title: 'kata-sensei — The Meta-Orchestrator'
+---
+
 # kata-sensei — The Meta-Orchestrator
 
 > Sensei (先生) coordinates multi-stage pipelines, passing artifacts between stages and synthesizing pipeline-level learnings.
