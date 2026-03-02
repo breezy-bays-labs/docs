@@ -1,7 +1,3 @@
----
-title: 'kata-create-agent — Registering a Kataka'
----
-
 # kata-create-agent — Registering a Kataka
 
 > A kataka is a named agent persona with a role, skills, and an ID used to attribute runs.

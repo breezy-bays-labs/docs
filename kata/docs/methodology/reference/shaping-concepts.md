@@ -1,7 +1,3 @@
----
-title: 'Shaping Concepts — Quick Reference'
----
-
 # Shaping Concepts — Quick Reference
 
 ## Notation

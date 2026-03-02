@@ -1,7 +1,3 @@
----
-title: 'Meta-Learning Architecture'
----
-
 # Meta-Learning Architecture
 
 > How Kata learns from its own execution — the observation system, knowledge graph, and self-improvement loop that make the system compound over time.

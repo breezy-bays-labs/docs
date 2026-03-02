@@ -63,8 +63,8 @@ interface should support graph operations for when they're needed.
 
 | Option | Pros | Cons | Right For |
 | ------ | ---- | ---- | --------- |
-| **JSON files + in-memory filtering** | Zero deps, portable, simple. Persist as `.json`, load into typed arrays, filter/map. | No graph traversal primitives — you implement BFS/DFS manually. Gets slow at 10K+ nodes. | v1 with \< 1K nodes |
-| **Graphology (in-memory JS graph library)** | Full graph operations (traversal, neighbors, shortest path, metrics). Well-maintained (2K+ stars). Zero external deps. JSON serialization built-in. | In-memory only — must load entire graph. Library adds ~50KB. | v1-v2 with \< 50K nodes |
+| **JSON files + in-memory filtering** | Zero deps, portable, simple. Persist as `.json`, load into typed arrays, filter/map. | No graph traversal primitives — you implement BFS/DFS manually. Gets slow at 10K+ nodes. | v1 with < 1K nodes |
+| **Graphology (in-memory JS graph library)** | Full graph operations (traversal, neighbors, shortest path, metrics). Well-maintained (2K+ stars). Zero external deps. JSON serialization built-in. | In-memory only — must load entire graph. Library adds ~50KB. | v1-v2 with < 50K nodes |
 | **SQLite (better-sqlite3)** | Relational queries, joins, aggregation. Recursive CTEs for graph-like traversal. Handles large datasets. | Native module (C++ binding) — complicates cross-platform npm publishing. Graph queries via CTEs are verbose. | When data exceeds memory |
 | **Neo4j / Memgraph** | Purpose-built graph DB. Cypher query language. Scales to millions of nodes. | External service dependency. Massive overkill for a dev tool. Violates null-state principle. | Enterprise scale (not us) |
 

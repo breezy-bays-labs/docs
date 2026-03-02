@@ -1,8 +1,4 @@
 ---
-title: 'Phase 2 Roadmap'
----
-
----
 title: Phase 2 Roadmap
 description: Projects, milestones, dependencies, and delivery strategy for Phase 2 of Screen Print Pro.
 ---

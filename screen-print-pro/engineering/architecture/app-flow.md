@@ -1,8 +1,4 @@
 ---
-title: 'Screen Print Pro — App Flow'
----
-
----
 title: 'APP_FLOW'
 description: 'Every screen, route, navigation path, and user journey. The authoritative reference for how users move through the app.'
 category: canonical
@@ -226,7 +222,7 @@ Customer Detail (/customers/[id])
 
 #### Success State
 
-- User found job and answered customer question in \<30 seconds
+- User found job and answered customer question in <30 seconds
 
 #### Error States
 
@@ -407,7 +403,7 @@ Customer Detail (/customers/[id])
 
 #### Success State
 
-- Lead captured in \< 5 seconds, visible on board, convertible to quote when ready
+- Lead captured in < 5 seconds, visible on board, convertible to quote when ready
 
 ---
 
@@ -707,7 +703,7 @@ Not applicable for Phase 1 (mock data is synchronous). Design loading skeleton p
 
 **Filter Bar**:
 
-- **Today**: Filters to cards with start date \<= today and not yet done
+- **Today**: Filters to cards with start date <= today and not yet done
 - **Service Type**: Screen Printing / DTF / Embroidery (multi-select)
 - **Section**: All / Quotes Only / Jobs Only
 - **Risk**: All / At Risk / Blocked

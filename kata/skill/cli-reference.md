@@ -1,7 +1,3 @@
----
-title: 'Kata CLI Reference — Agent-Facing Commands'
----
-
 # Kata CLI Reference — Agent-Facing Commands
 
 > All commands support `--json` for machine-readable output.
@@ -336,7 +332,7 @@ Record an orchestration decision for observability and self-improvement.
 **Optional flags**:
 - `--flavor <name>` — flavor context (omit for stage-level decisions)
 - `--step <name>` — step context (omit for flavor/stage-level decisions)
-- `--yolo` — bypass confidence gate even if confidence \< threshold
+- `--yolo` — bypass confidence gate even if confidence < threshold
 
 **Example**:
 ```bash

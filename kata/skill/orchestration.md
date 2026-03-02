@@ -1,7 +1,3 @@
----
-title: 'Kata Orchestration — Mapping to Claude Code'
----
-
 # Kata Orchestration — Mapping to Claude Code
 
 > How Kata methodology concepts map to Claude Code teams and tasks.

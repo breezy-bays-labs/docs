@@ -1,7 +1,3 @@
----
-title: 'Kata File Structure — State File Guide'
----
-
 # Kata File Structure — State File Guide
 
 > Use CLI for all writes. Read these files directly for browsing context.

@@ -1,8 +1,4 @@
 ---
-title: 'DDD Strategy — Screen Print Pro'
----
-
----
 title: 'DDD Strategy'
 description: 'Domain-Driven Design as the architectural lens for classifying, organizing, and building Screen Print Pro. Living blueprint for project taxonomy.'
 category: canonical

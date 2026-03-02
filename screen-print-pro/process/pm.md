@@ -1,7 +1,3 @@
----
-title: 'Project Management — PM.md'
----
-
 # Project Management — PM.md
 
 > **Last Verified**: 2026-02-16

@@ -1,8 +1,4 @@
 ---
-title: 'Breadboarding'
----
-
----
 name: breadboarding
 description: >
   Transform shaped parts or existing systems into affordance tables showing UI and Code
@@ -1260,7 +1256,7 @@ Verify every requirement from the shaping doc has corresponding affordances:
 
 | Req | Requirement    | Affordances | Covered? |
 | --- | -------------- | ----------- | -------- |
-| R0  | \{from shaping\} | U-, N-, S-  | Yes/No   |
+| R0  | {from shaping} | U-, N-, S-  | Yes/No   |
 
 ### Quality Gate
 

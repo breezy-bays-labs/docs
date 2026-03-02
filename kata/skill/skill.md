@@ -1,7 +1,3 @@
----
-title: 'Kata Skill — Agent Instructions'
----
-
 # Kata Skill — Agent Instructions
 
 > This file is the primary entry point. Read it fully before using any kata command.

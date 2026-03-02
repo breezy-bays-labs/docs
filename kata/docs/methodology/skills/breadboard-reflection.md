@@ -8,7 +8,7 @@ trigger: >
   After breadboarding is complete, before implementation planning.
   Also use independently to audit any existing breadboard.
 prerequisites:
-  - A breadboard document exists (in docs/workspace/\{pipeline-id\}/breadboard.md for new work, or docs/breadboards/ for Phase 1 legacy)
+  - A breadboard document exists (in docs/workspace/{pipeline-id}/breadboard.md for new work, or docs/breadboards/ for Phase 1 legacy)
   - For implementation comparison: access to the codebase
 ---
 

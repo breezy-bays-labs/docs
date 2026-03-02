@@ -1,7 +1,3 @@
----
-title: 'kata-create-skill — Writing a Kata Skill File'
----
-
 # kata-create-skill — Writing a Kata Skill File
 
 > Skill files are markdown documents in `skill/` (repo root) or `.kata/skill/` (project).

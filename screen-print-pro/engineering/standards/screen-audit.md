@@ -292,7 +292,7 @@ For **every element** on the screen, ask these five questions:
 | 12-14 | Good        | Polish and present                |
 | 9-11  | Acceptable  | Address warnings before review    |
 | 6-8   | Needs Work  | Complete failing items            |
-| \<6    | Failing     | Significant rework required       |
+| <6    | Failing     | Significant rework required       |
 
 ---
 

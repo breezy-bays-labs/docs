@@ -1,8 +1,4 @@
 ---
-title: 'Shaping'
----
-
----
 name: shaping
 description: >
   Iterative problem definition (requirements) and solution exploration (shapes).

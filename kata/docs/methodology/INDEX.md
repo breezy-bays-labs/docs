@@ -1,7 +1,3 @@
----
-title: 'Methodology Reference'
----
-
 # Methodology Reference
 
 Source material for kata's built-in stages, prompt templates, and methodology model.

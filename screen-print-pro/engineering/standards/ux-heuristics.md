@@ -260,7 +260,7 @@ Use this table to audit each screen:
 - **9-10 points**: Excellent UX, ready for user review
 - **7-8 points**: Good UX, minor polish needed
 - **5-6 points**: Acceptable UX, notable gaps
-- **\<5 points**: Poor UX, major rework needed
+- **<5 points**: Poor UX, major rework needed
 
 ---
 

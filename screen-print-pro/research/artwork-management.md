@@ -1,8 +1,4 @@
 ---
-title: 'Artwork Management Research'
----
-
----
 title: Artwork Management Research
 description: Competitive analysis, domain model, color detection, storage, separation files, mockup generation, and approval workflows for the Artwork Library vertical.
 ---
@@ -139,7 +135,7 @@ Auto-detect a color count and palette, let the user adjust. 80%+ accuracy is rea
 ### Domain-Specific Rules
 
 - **White as a color**: Counts as a screen (underbase) on dark garments, doesn't on light garments. System needs garment color context at detection time.
-- **Merge threshold**: CIEDE2000 ΔE \< 8–10 for merging "same screen" colors — screen ink mixing is imprecise, slight color variations print identically.
+- **Merge threshold**: CIEDE2000 ΔE < 8–10 for merging "same screen" colors — screen ink mixing is imprecise, slight color variations print identically.
 - **Background detection**: Exclude the dominant edge-concentrated color (likely the background/garment color).
 - **Gradient handling**: Smooth transitions between hues = 1 screen (halftone), not multiple screens.
 
@@ -160,7 +156,7 @@ Auto-detect a color count and palette, let the user adjust. 80%+ accuracy is rea
 
 | Phase           | Provider                            | Why                                                                                                                        | Monthly Cost     |
 | --------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| **POC / Beta**  | Supabase Storage (Free tier)        | Already have Supabase project. **1GB storage + 2GB egress included — sufficient for \<200 artworks.** Zero additional cost. | $0               |
+| **POC / Beta**  | Supabase Storage (Free tier)        | Already have Supabase project. **1GB storage + 2GB egress included — sufficient for <200 artworks.** Zero additional cost. | $0               |
 | **Single Shop** | Cloudflare R2                       | Zero egress fees, S3-compatible API. Migrate when storage approaches 1GB or for production reliability.                    | ~$4.50 for 300GB |
 | **SaaS Scale**  | R2 or Backblaze B2 + Cloudflare CDN | Lowest cost at scale                                                                                                       | ~$18–45 for 3TB  |
 
@@ -285,7 +281,7 @@ Current `mix-blend-multiply` makes artwork invisible on dark garments. Fix: two-
 1. White underbase shape at ~80% opacity (simulates the physical underbase)
 2. Artwork with multiply blend on top of the white layer
 
-Detect garment darkness during catalog sync (average luminance in print zone area \< 40% = dark mode).
+Detect garment darkness during catalog sync (average luminance in print zone area < 40% = dark mode).
 
 ### Freezing Mockups (Lifecycle Events)
 

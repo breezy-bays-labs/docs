@@ -1,7 +1,3 @@
----
-title: 'Dojo Architecture — Personal Training Environment'
----
-
 # Dojo Architecture — Personal Training Environment
 
 > How the Dojo transforms Kata's execution data into an interactive training experience for the developer — diary entries, session generation, the Japanese dojo design system, and the curated source registry.
@@ -101,11 +97,11 @@ Diary quality scales with the level of interaction available. All three tiers pr
 **Autonomous (`--auto`):** Claude runs ma without user interaction. Claude reads run data, infers patterns, identifies what went well and what didn't, assesses mood from structured signals, and writes a qualitative narrative. What's missing is the user's personal perspective. Enhancing `--auto` to use Claude's inference capability for richer unattended diary entries is tracked as [#180](https://github.com/cmbays/kata/issues/180).
 
 **Deterministic (no Claude):** Pure template-based generation from structured data when no LLM is available (offline environments, CI pipelines):
-- Narrative: "Keiko '\{name\}' completed with X/Y bets..."
+- Narrative: "Keiko '{name}' completed with X/Y bets..."
 - Wins: From complete bet outcomes
 - Pain points: From partial/abandoned bets + high-severity gaps
 - Open questions: From proposals
-- Mood: Heuristic (>80% bets complete = energized, 50-80% = steady, \<50% = frustrated)
+- Mood: Heuristic (>80% bets complete = energized, 50-80% = steady, <50% = frustrated)
 
 ---
 

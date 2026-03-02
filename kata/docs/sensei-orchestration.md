@@ -1,7 +1,3 @@
----
-title: 'Sensei Orchestration — What the Sensei Does'
----
-
 # Sensei Orchestration — What the Sensei Does
 
 > How the sensei skill drives pipeline execution — parallel ryu dispatch, mon handling, gap bridging, and the autonomous execution model.

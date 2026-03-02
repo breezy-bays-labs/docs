@@ -1,7 +1,3 @@
----
-title: 'Breadboarding Concepts'
----
-
 # Breadboarding Concepts
 
 Reference guide for the breadboarding methodology. Consult when producing or reviewing breadboard documents.

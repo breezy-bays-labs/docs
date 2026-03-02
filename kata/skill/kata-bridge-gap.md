@@ -1,7 +1,3 @@
----
-title: 'kata-bridge-gap — Recording and Resolving Gaps'
----
-
 # kata-bridge-gap — Recording and Resolving Gaps
 
 > Gaps are friction points, missing capabilities, or knowledge holes captured during practice.
@@ -76,7 +72,7 @@ Gaps are bridged by creating new flavors, steps, or skill files:
    kata observe record \
      --type learning \
      --subject "Rust async: prefer tokio for web services" \
-     --references-gap \<gap-id>
+     --references-gap <gap-id>
    ```
 
 ---

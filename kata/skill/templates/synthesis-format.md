@@ -1,7 +1,3 @@
----
-title: 'Synthesis Format — Stage Synthesis Structure'
----
-
 # Synthesis Format — Stage Synthesis Structure
 
 > A synthesis artifact summarizes a completed stage and provides a handoff to the next stage.

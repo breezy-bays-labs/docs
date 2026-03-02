@@ -82,7 +82,7 @@ A **production-first** management system for small screen-printing shops. It tra
 3. **Invoice generated from job** includes accurate line items, tax calculation, and payment recording.
 4. **Garment catalog** shows real S&S data with inventory status badges, color families, and shop-curated favorites.
 5. **Customer detail page** shows complete relationship: contacts, quotes, jobs, invoices, artwork, activity timeline.
-6. **Morning status check** takes \< 5 seconds: dashboard shows blocked, in-progress, at-risk jobs with actionable links.
+6. **Morning status check** takes < 5 seconds: dashboard shows blocked, in-progress, at-risk jobs with actionable links.
 
 ## Core Principles
 

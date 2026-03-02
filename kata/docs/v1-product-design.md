@@ -1,7 +1,3 @@
----
-title: 'Kata v1 Product Design'
----
-
 # Kata v1 Product Design
 
 > Linear Project Brief — what Kata is, what's in scope for v1, and how we know it's working.

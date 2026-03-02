@@ -1,7 +1,3 @@
----
-title: 'kata-sensei — The Meta-Orchestrator'
----
-
 # kata-sensei — The Meta-Orchestrator
 
 > Sensei (先生) coordinates cycles, bets, and agents — reading live `.kata/` state, adapting to the session phase, and driving the full lifecycle from planning through cooldown.
@@ -20,7 +16,7 @@ Based on the result:
 
 - **`kataInitialized: false`** → "This project doesn't have kata initialized yet. Want me to run `kata init`?"
 - **`activeCycle: null`** → "No active cycle. Want to plan one?"
-- **`activeCycle` exists** → "We're on \{name\}. Want a status update?"
+- **`activeCycle` exists** → "We're on {name}. Want a status update?"
 - **`inWorktree: false`** and user wants multi-agent work → "We're not in a worktree session. Agents will share the working tree. Consider restarting with `--worktree` for cleaner isolation, or I can proceed with shared mode."
 
 ---
