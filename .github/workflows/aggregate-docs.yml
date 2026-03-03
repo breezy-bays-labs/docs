@@ -23,15 +23,6 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Save base repo files from main before switching branches
-          cp docs.json /tmp/base-docs.json
-          cp introduction.mdx /tmp/base-introduction.mdx
-          cp -r images /tmp/base-images
-          # Org-level philosophy docs (authored in the docs repo, not aggregated)
-          if [ -d breezy-bays-labs ]; then
-            cp -r breezy-bays-labs /tmp/base-breezy-bays-labs
-          fi
-
           # Clone source repos (shallow, public — token used for push only)
           git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
           git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
@@ -39,20 +30,10 @@ jobs:
           # Prepare the docs branch
           git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
 
-          # Clean existing aggregated content
-          rm -rf screen-print-pro kata breezy-bays-labs
+          # Clean existing aggregated content (preserve base repo files)
+          rm -rf screen-print-pro kata
 
-          # Always refresh base files from main
-          cp /tmp/base-docs.json docs.json
-          rm -f mint.json  # Remove deprecated config if it exists
-          cp /tmp/base-introduction.mdx introduction.mdx
-          cp -r /tmp/base-images/* images/
-          # Restore org-level docs from main
-          if [ -d /tmp/base-breezy-bays-labs ]; then
-            cp -r /tmp/base-breezy-bays-labs breezy-bays-labs
-          fi
-
-          # --- Screen Print Pro ---
+          # Copy print-4ink docs (from docs-site/ subdirectory)
           cp -r /tmp/print-4ink/docs-site screen-print-pro
 
           # Resolve symlinks — print-4ink uses symlinks to docs/ outside docs-site/
@@ -64,107 +45,26 @@ jobs:
             fi
           done
 
-          # Remove print-4ink's local config files (we use the base repo's docs.json)
+          # Remove print-4ink's local docs.json (we use the base repo's config)
           rm -f screen-print-pro/docs.json screen-print-pro/mint.json
 
-          # Rename changelog (Mintlify reserves the "changelog" route)
-          if [ -f screen-print-pro/process/changelog/changelog.md ]; then
-            mv screen-print-pro/process/changelog/changelog.md screen-print-pro/process/releases.md
-            rm -rf screen-print-pro/process/changelog
-          fi
+          # Copy kata docs (from docs-site/ subdirectory)
+          cp -r /tmp/kata/docs-site kata
 
-          # --- Kata ---
-          mkdir -p kata
-          cp -r /tmp/kata/docs /tmp/kata/skill kata/ 2>/dev/null || true
-          # Skip CONTRIBUTING.md (not in navigation, case-sensitive path issues)
-
-          # Copy and rename kata's changelog (Mintlify reserves the "changelog" route)
-          if [ -f /tmp/kata/changelog.md ]; then
-            cp /tmp/kata/changelog.md kata/release-history.md
-          fi
-
-          # Delete template files — they contain {placeholder} patterns that
-          # cannot be escaped without breaking their purpose as copy-paste templates
-          rm -f kata/docs/methodology/templates/breadboard-template.md
-          rm -f kata/docs/methodology/templates/frame-template.md
-          rm -f kata/docs/methodology/templates/shaping-template.md
-          rm -f kata/docs/methodology/templates/execution-manifest-template.yaml
-          rmdir kata/docs/methodology/templates 2>/dev/null || true
-
-          echo "=== Aggregated structure ==="
-          find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -80
-
-      - name: Post-process MDX compatibility
-        run: |
-          set -euo pipefail
-
-          # Mintlify treats all .md files as MDX. Characters < and { outside
-          # code blocks and inline code are parsed as JSX and cause fatal errors.
-          # This step escapes them and ensures YAML frontmatter exists on every file.
-
-          find screen-print-pro kata breezy-bays-labs -name '*.md' -type f | while read -r file; do
-
-            content=$(<"$file")
-
-            # --- Add frontmatter if missing ---
-            if ! echo "$content" | head -1 | grep -q '^---$'; then
-              title=$(echo "$content" | grep -m1 '^# ' | sed 's/^# //' || true)
-              if [ -z "$title" ]; then
-                title=$(basename "$file" .md | sed 's/-/ /g')
-              fi
-              # Escape single quotes in title for YAML
-              title=$(echo "$title" | sed "s/'/''/g")
-              printf -- "---\ntitle: '%s'\n---\n\n%s\n" "$title" "$content" > "$file"
-              content=$(<"$file")
+          # Resolve symlinks — kata uses symlinks to docs/ and skill/ outside docs-site/
+          find kata -type l | while read link; do
+            target=$(readlink -f "/tmp/kata/docs-site/$(echo "$link" | sed 's|^kata/||')" 2>/dev/null || true)
+            if [ -f "$target" ]; then
+              rm "$link"
+              cp "$target" "$link"
             fi
-
-            # --- Escape MDX-breaking characters outside code blocks ---
-            # awk tracks fenced code blocks (``` ... ```) and inline code (`...`)
-            # Only escapes < { } in prose text, leaving code untouched.
-            echo "$content" | awk '
-              /^```/ { in_code = !in_code }
-              !in_code {
-                line = $0
-                result = ""
-                # Process inline code spans — leave their content untouched
-                while (match(line, /`[^`]*`/)) {
-                  prefix = substr(line, 1, RSTART - 1)
-                  code_span = substr(line, RSTART, RLENGTH)
-                  line = substr(line, RSTART + RLENGTH)
-                  # Protect already-escaped sequences
-                  gsub(/\\{/, "\x01", prefix)
-                  gsub(/\\}/, "\x02", prefix)
-                  gsub(/\\</, "\x03", prefix)
-                  # Escape bare MDX characters
-                  gsub(/{/, "\\{", prefix)
-                  gsub(/}/, "\\}", prefix)
-                  gsub(/</, "\\<", prefix)
-                  # Restore already-escaped (they stay single-escaped)
-                  gsub(/\x01/, "\\{", prefix)
-                  gsub(/\x02/, "\\}", prefix)
-                  gsub(/\x03/, "\\<", prefix)
-                  result = result prefix code_span
-                }
-                # Process remaining text after last inline code span
-                gsub(/\\{/, "\x01", line)
-                gsub(/\\}/, "\x02", line)
-                gsub(/\\</, "\x03", line)
-                gsub(/{/, "\\{", line)
-                gsub(/}/, "\\}", line)
-                gsub(/</, "\\<", line)
-                gsub(/\x01/, "\\{", line)
-                gsub(/\x02/, "\\}", line)
-                gsub(/\x03/, "\\<", line)
-                print result line
-                next
-              }
-              { print }
-            ' > "${file}.tmp"
-
-            mv "${file}.tmp" "$file"
           done
 
-          echo "=== MDX post-processing complete ==="
+          # Remove kata's local docs.json (we use the base repo's config)
+          rm -f kata/docs.json kata/mint.json
+
+          echo "=== Aggregated structure ==="
+          find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -60
 
       - name: Commit and push
         env:
