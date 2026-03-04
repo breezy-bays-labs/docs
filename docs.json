@@ -114,6 +114,47 @@
         ]
       },
       {
+        "tab": "Soji",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "soji/docs/introduction",
+              "soji/docs/vision"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Tankyu",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "tankyu/docs/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Renshin",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "renshin/docs/introduction"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "renshin/docs/getting-started",
+              "renshin/docs/architecture"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Kata",
         "groups": [
           {

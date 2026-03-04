@@ -35,12 +35,15 @@ jobs:
           # Clone source repos (shallow, public — token used for push only)
           git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
           git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
+          git clone --depth=1 https://github.com/cmbays/soji.git /tmp/soji
+          git clone --depth=1 https://github.com/cmbays/tankyu.git /tmp/tankyu
+          git clone --depth=1 https://github.com/cmbays/renshin.git /tmp/renshin
 
           # Prepare the docs branch
           git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
 
           # Clean existing aggregated content
-          rm -rf screen-print-pro kata breezy-bays-labs
+          rm -rf screen-print-pro kata soji tankyu renshin breezy-bays-labs
 
           # Always refresh base files from main
           cp /tmp/base-docs.json docs.json
@@ -91,6 +94,18 @@ jobs:
           rm -f kata/docs/methodology/templates/execution-manifest-template.yaml
           rmdir kata/docs/methodology/templates 2>/dev/null || true
 
+          # --- Soji ---
+          mkdir -p soji
+          cp -r /tmp/soji/docs soji/
+
+          # --- Tankyu ---
+          mkdir -p tankyu
+          cp -r /tmp/tankyu/docs tankyu/
+
+          # --- Renshin ---
+          mkdir -p renshin
+          cp -r /tmp/renshin/docs renshin/
+
           echo "=== Aggregated structure ==="
           find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -80
 
@@ -102,7 +117,7 @@ jobs:
           # code blocks and inline code are parsed as JSX and cause fatal errors.
           # This step escapes them and ensures YAML frontmatter exists on every file.
 
-          find screen-print-pro kata breezy-bays-labs -name '*.md' -type f | while read -r file; do
+          find screen-print-pro kata soji tankyu renshin breezy-bays-labs -name '*.md' -type f | while read -r file; do
 
             content=$(<"$file")
 
