@@ -21,7 +21,8 @@
               "breezy-bays-labs/design",
               "breezy-bays-labs/quality",
               "breezy-bays-labs/process",
-              "breezy-bays-labs/decisions"
+              "breezy-bays-labs/decisions",
+              "breezy-bays-labs/context"
             ]
           }
         ]
@@ -246,6 +247,7 @@
           {
             "group": "Vision",
             "pages": [
+              "kata/vision/three-space",
               "kata/vision/knowledge-graph",
               "kata/vision/rust-port"
             ]
