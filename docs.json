@@ -114,96 +114,154 @@
         ]
       },
       {
+        "tab": "Soji",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "soji/docs/introduction",
+              "soji/docs/vision"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Tankyu",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "tankyu/docs/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Renshin",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "renshin/docs/introduction"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "renshin/docs/getting-started",
+              "renshin/docs/architecture"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Kata",
         "groups": [
           {
             "group": "Getting Started",
             "pages": [
-              "kata/docs/introduction",
-              "kata/docs/project-setup"
+              "kata/introduction",
+              "kata/getting-started/project-setup"
             ]
           },
           {
             "group": "System Guide",
             "pages": [
-              "kata/docs/kata-system-guide"
+              "kata/guides/system-guide"
             ]
           },
           {
             "group": "Using Kata",
             "pages": [
-              "kata/skill/skill",
-              "kata/skill/cli-reference",
-              "kata/skill/file-structure",
-              "kata/skill/dojo"
+              "kata/guides/skill-overview",
+              "kata/guides/cli-reference",
+              "kata/guides/file-structure",
+              "kata/guides/dojo"
             ]
           },
           {
             "group": "For Agents",
             "pages": [
-              "kata/skill/orchestration",
-              "kata/skill/context-flow",
-              "kata/skill/kata-orchestration",
-              "kata/skill/kata-sensei",
-              "kata/skill/kata-create-agent",
-              "kata/skill/kata-create-skill",
-              "kata/skill/kata-bridge-gap",
-              "kata/skill/kata-scan-project"
+              "kata/agents/orchestration",
+              "kata/agents/context-flow",
+              "kata/agents/kata-orchestration",
+              "kata/agents/kata-sensei",
+              "kata/agents/kata-create-agent",
+              "kata/agents/kata-create-skill",
+              "kata/agents/kata-bridge-gap",
+              "kata/agents/kata-scan-project",
+              "kata/agents/kata-synthesis"
             ]
           },
           {
             "group": "Kata Architecture",
             "pages": [
-              "kata/docs/kataka-architecture",
-              "kata/docs/sensei-orchestration",
-              "kata/docs/meta-learning-architecture",
-              "kata/docs/dojo-architecture"
+              "kata/architecture/kataka",
+              "kata/architecture/sensei-orchestration",
+              "kata/architecture/meta-learning",
+              "kata/architecture/dojo"
             ]
           },
           {
             "group": "Product Design",
             "pages": [
-              "kata/docs/v1-product-design",
-              "kata/docs/v1-user-journeys",
-              "kata/docs/v1-interaction-design",
-              "kata/docs/v1-design-vision"
+              "kata/product-design/product-design",
+              "kata/product-design/user-journeys",
+              "kata/product-design/interaction-design",
+              "kata/product-design/design-vision"
             ]
           },
           {
             "group": "Methodology",
             "pages": [
-              "kata/docs/methodology/INDEX",
-              "kata/docs/methodology/how-we-work"
+              "kata/methodology/index",
+              "kata/methodology/how-we-work"
             ]
           },
           {
             "group": "Skills",
             "pages": [
-              "kata/docs/methodology/skills/shaping",
-              "kata/docs/methodology/skills/breadboarding",
-              "kata/docs/methodology/skills/breadboard-reflection",
-              "kata/docs/methodology/skills/learnings-synthesis"
+              "kata/methodology/skills/shaping",
+              "kata/methodology/skills/breadboarding",
+              "kata/methodology/skills/breadboard-reflection",
+              "kata/methodology/skills/learnings-synthesis"
             ]
           },
           {
             "group": "Quick Reference",
             "pages": [
-              "kata/docs/methodology/reference/shaping-concepts",
-              "kata/docs/methodology/reference/breadboarding-concepts",
-              "kata/docs/methodology/reference/app-flow-standard"
+              "kata/methodology/reference/shaping-concepts",
+              "kata/methodology/reference/breadboarding-concepts",
+              "kata/methodology/reference/app-flow-standard"
+            ]
+          },
+          {
+            "group": "Templates",
+            "pages": [
+              "kata/methodology/templates/frame-template",
+              "kata/methodology/templates/shaping-template",
+              "kata/methodology/templates/breadboard-template"
+            ]
+          },
+          {
+            "group": "Vision",
+            "pages": [
+              "kata/vision/knowledge-graph",
+              "kata/vision/rust-port"
             ]
           },
           {
             "group": "Kata Roadmap",
             "pages": [
-              "kata/docs/unified-roadmap",
-              "kata/docs/dogfooding-roadmap"
+              "kata/roadmap/unified-roadmap",
+              "kata/roadmap/dogfooding-roadmap"
             ]
           },
           {
             "group": "Kata Project",
             "pages": [
-              "kata/release-history"
+              "kata/project/release-history",
+              "kata/project/contributing"
             ]
           }
         ]
