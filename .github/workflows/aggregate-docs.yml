@@ -26,12 +26,15 @@ jobs:
           # Clone source repos (shallow, public — token used for push only)
           git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
           git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
+          git clone --depth=1 https://github.com/cmbays/soji.git /tmp/soji
+          git clone --depth=1 https://github.com/cmbays/tankyu.git /tmp/tankyu
+          git clone --depth=1 https://github.com/cmbays/renshin.git /tmp/renshin
 
           # Prepare the docs branch
           git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
 
           # Clean existing aggregated content (preserve base repo files)
-          rm -rf screen-print-pro kata
+          rm -rf screen-print-pro kata soji tankyu renshin
 
           # Copy print-4ink docs (from docs-site/ subdirectory)
           cp -r /tmp/print-4ink/docs-site screen-print-pro
@@ -62,6 +65,18 @@ jobs:
 
           # Remove kata's local docs.json (we use the base repo's config)
           rm -f kata/docs.json kata/mint.json
+
+          # --- Soji ---
+          mkdir -p soji
+          cp -r /tmp/soji/docs soji/
+
+          # --- Tankyu ---
+          mkdir -p tankyu
+          cp -r /tmp/tankyu/docs tankyu/
+
+          # --- Renshin ---
+          mkdir -p renshin
+          cp -r /tmp/renshin/docs renshin/
 
           echo "=== Aggregated structure ==="
           find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -60
