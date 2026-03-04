@@ -20,18 +20,16 @@ jobs:
       - name: Aggregate docs from source repos
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
+          CMBAYS_PAT: ${{ secrets.CMBAYS_PAT }}
         run: |
           set -euo pipefail
-
-          # Authenticate for private repo clones
-          git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
 
           # Clone source repos
           git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
           git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
-          git clone --depth=1 https://github.com/cmbays/soji.git /tmp/soji
-          git clone --depth=1 https://github.com/cmbays/tankyu.git /tmp/tankyu
-          git clone --depth=1 https://github.com/cmbays/renshin.git /tmp/renshin
+          git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/soji.git" /tmp/soji
+          git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/tankyu.git" /tmp/tankyu
+          git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/renshin.git" /tmp/renshin
 
           # Prepare the docs branch
           git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
