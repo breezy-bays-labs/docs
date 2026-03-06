@@ -35,7 +35,7 @@ This is not about replacing human judgment with AI. It's about **focusing** huma
 
 Agents have amnesia. They start every session with zero context about what happened before. In a traditional team, coordination happens through shared memory — standups, Slack history, institutional knowledge. None of that works when your team resets every session.
 
-Our solution: **methodology structure compensates for the absence of memory.** Documentation, pipelines, schemas, naming conventions, project boards, and CLAUDE.md files are not just nice-to-have — they are the coordination layer. If it's not written down in a place an agent can find, it doesn't exist.
+Our solution: **methodology structure compensates for the absence of memory.** Documentation, pipelines, schemas, naming conventions, project boards, and instruction files (`AGENTS.md` + `CLAUDE.md`) are not just nice-to-have — they are the coordination layer. If it's not written down in a place an agent can find, it doesn't exist.
 
 This means:
 - Every decision worth remembering gets captured in a durable artifact
