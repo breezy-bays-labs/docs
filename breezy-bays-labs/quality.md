@@ -36,6 +36,56 @@ The reasoning: a rounding error in a price calculation costs real money and erod
 
 Domain rules and financial calculations are written test-first. The test defines the expected behavior before the implementation exists. This is not optional for critical-risk code — it's the only way to ensure the implementation matches the specification rather than the other way around.
 
+### Mutation Testing: Verifying Test Quality
+
+Coverage tells you what code your tests *execute*. Mutation testing tells you what code your tests *actually verify*. A test suite can hit 100% line coverage while asserting nothing meaningful — mutation testing catches this.
+
+**How it works:** The mutation testing tool (Stryker) makes small, systematic changes to your source code — called "mutants" — like flipping `>` to `>=`, removing a condition, swapping `true` for `false`, or replacing `+` with `-`. For each mutant, it runs your test suite. If a test fails, the mutant is "killed" (good — your tests caught the change). If all tests pass, the mutant "survived" (bad — your tests didn't notice the behavior change).
+
+**The mutation score** is the percentage of mutants killed. A survived mutant means there's a code path where behavior could change silently without any test catching it.
+
+#### When to Use Mutation Testing
+
+Mutation testing is computationally expensive — it runs your full test suite once per mutant, which can mean hundreds or thousands of runs. Use it strategically:
+
+| Risk Level | Mutation testing? | Target score |
+|------------|------------------|-------------|
+| **Critical** | Required — run on every PR touching this code | 90%+ |
+| **High** | Required — run before release | 80%+ |
+| **Medium** | Recommended — run periodically | 70%+ |
+| **Standard** | Optional — use to audit test quality when uncertain | No threshold |
+
+#### Setup Pattern (All Repos)
+
+Every TypeScript/JavaScript repo should include Stryker configuration. The standard setup:
+
+1. **Install dependencies:** `@stryker-mutator/core`, the runner plugin for your test framework (e.g., `@stryker-mutator/vitest-runner`), and `@stryker-mutator/typescript-checker`
+2. **Config file:** `stryker.config.json` at repo root
+3. **npm scripts:** `test:mutation` (full run) and `test:mutation:incremental` (faster reruns, only re-tests changed files)
+4. **Gitignore:** `.stryker-tmp/` and `reports/mutation/`
+
+#### Configuration Best Practices
+
+- **Scope the `mutate` glob to domain and feature code.** Exclude CLI commands, program entry points, and pure wiring code — these are best tested by integration/E2E tests, and mutating them generates noise.
+- **Use `coverageAnalysis: "perTest"`** for faster runs — Stryker only runs tests that cover each mutant.
+- **Set `thresholds.break`** to fail CI when the score drops below a minimum. Start at 50% and ratchet up as test quality improves.
+- **Use incremental mode** (`--incremental`) during development. It caches results and only re-tests mutants affected by changes.
+- **Use `concurrency`** to parallelize — set to your CPU core count minus 1.
+
+#### Interpreting Results
+
+When a mutant survives, ask:
+
+1. **Is this a meaningful behavior change?** If flipping a condition from `>` to `>=` doesn't change any observable behavior, the mutant is equivalent (false positive). Mark it as ignored.
+2. **Is there a missing test?** Most survived mutants indicate a gap — a branch not tested, a return value not asserted, or an edge case not covered. Write the test.
+3. **Is the code itself unnecessary?** Sometimes a survived mutant reveals dead code or a redundant condition. If removing the code doesn't change behavior, remove it.
+
+#### CI Integration
+
+- **PR checks (optional):** Run mutation testing on changed files only (`--incremental` + `--mutate` scoped to changed paths). This keeps CI fast while catching test quality regressions on new code.
+- **Nightly/weekly (recommended):** Full mutation run on critical and high-risk modules. Report the score and trend over time.
+- **Release gates (for critical code):** Block release if mutation score for critical modules drops below the threshold.
+
 ---
 
 ## UX Quality: 10 Heuristics
