@@ -114,6 +114,17 @@ We use GitHub Issues, Projects, and PRs as the PM platform. Not Linear, not Jira
 
 ---
 
+## Control Plane and Runtime
+
+We separate org automation into two repos:
+
+- **`ops` (control plane)** — standards, decisions, queue definitions, and automation intent
+- **`relay` (runtime)** — scheduled execution, adapters, retries, and proof-of-work outputs
+
+This keeps governance stable while allowing runtime iteration speed and tighter credential boundaries.
+
+---
+
 ## Cool-Down Cycles
 
 Between bets, cool-down cycles provide structured space for:
