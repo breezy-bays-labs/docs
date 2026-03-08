@@ -23,92 +23,98 @@
               "breezy-bays-labs/process",
               "breezy-bays-labs/decisions"
             ]
+          },
+          {
+            "group": "Design System",
+            "pages": [
+              "breezy-bays-labs/design-system/introduction",
+              "breezy-bays-labs/design-system/foundations",
+              "breezy-bays-labs/design-system/component-model",
+              "breezy-bays-labs/design-system/implementation-stack",
+              "breezy-bays-labs/design-system/accessibility-and-quality"
+            ]
           }
         ]
       },
       {
-        "tab": "Screen Print Pro",
+        "tab": "Mokumo",
         "groups": [
           {
             "group": "Overview",
             "pages": [
-              "screen-print-pro/introduction",
-              "screen-print-pro/product/product-design",
-              "screen-print-pro/product/prd"
+              "mokumo/introduction",
+              "mokumo/product/vision",
+              "mokumo/product/product-design"
             ]
           },
           {
             "group": "User Experience",
             "pages": [
-              "screen-print-pro/product/user-journeys",
-              "screen-print-pro/product/interaction-design",
-              "screen-print-pro/product/design-vision"
+              "mokumo/product/user-journeys"
             ]
           },
           {
             "group": "Domain",
             "pages": [
-              "screen-print-pro/product/domain-glossary"
-            ]
-          },
-          {
-            "group": "Architecture",
-            "pages": [
-              "screen-print-pro/engineering/architecture/tech-stack",
-              "screen-print-pro/engineering/architecture/system-architecture",
-              "screen-print-pro/engineering/architecture/app-flow",
-              "screen-print-pro/engineering/architecture/app-ia",
-              "screen-print-pro/engineering/architecture/ddd-strategy",
-              "screen-print-pro/engineering/architecture/infrastructure"
-            ]
-          },
-          {
-            "group": "Standards",
-            "pages": [
-              "screen-print-pro/engineering/standards/coding-standards",
-              "screen-print-pro/engineering/standards/testing-strategy",
-              "screen-print-pro/engineering/standards/design-system",
-              "screen-print-pro/engineering/standards/screen-audit",
-              "screen-print-pro/engineering/standards/ux-heuristics"
-            ]
-          },
-          {
-            "group": "Guides",
-            "pages": [
-              "screen-print-pro/engineering/guides/app-flow-standard",
-              "screen-print-pro/engineering/guides/ss-api-reference"
-            ]
-          },
-          {
-            "group": "Process",
-            "pages": [
-              "screen-print-pro/process/how-we-work",
-              "screen-print-pro/process/pm"
-            ]
-          },
-          {
-            "group": "Releases",
-            "pages": [
-              "screen-print-pro/process/releases"
+              "mokumo/product/domain-glossary"
             ]
           },
           {
             "group": "Roadmap",
             "pages": [
-              "screen-print-pro/roadmap/phase-2",
-              "screen-print-pro/roadmap/projects"
+              "mokumo/roadmap/overview",
+              "mokumo/roadmap/m0-foundation",
+              "mokumo/roadmap/m1-core-data",
+              "mokumo/roadmap/m2-quote-to-cash",
+              "mokumo/roadmap/m3-operational-depth",
+              "mokumo/roadmap/m4-multi-service",
+              "mokumo/roadmap/m5-analytics",
+              "mokumo/roadmap/m6-polish-onboarding",
+              "mokumo/roadmap/m7-hardening",
+              "mokumo/roadmap/m8-beta-readiness",
+              "mokumo/roadmap/m9-beta-launch"
             ]
           },
           {
-            "group": "Research",
+            "group": "Architecture",
             "pages": [
-              "screen-print-pro/research/competitive-analysis",
-              "screen-print-pro/research/supplier-catalog",
-              "screen-print-pro/research/quoting-pricing",
-              "screen-print-pro/research/production-workflow",
-              "screen-print-pro/research/customer-portal",
-              "screen-print-pro/research/infrastructure-decisions",
-              "screen-print-pro/research/artwork-management"
+              "mokumo/engineering/architecture/tech-stack",
+              "mokumo/engineering/architecture/system-architecture",
+              "mokumo/engineering/architecture/app-flow",
+              "mokumo/engineering/architecture/app-ia",
+              "mokumo/engineering/architecture/ddd-strategy",
+              "mokumo/engineering/architecture/infrastructure",
+              "mokumo/product/design-vision"
+            ]
+          },
+          {
+            "group": "Standards",
+            "pages": [
+              "mokumo/engineering/standards/coding-standards",
+              "mokumo/engineering/standards/testing-strategy",
+              "mokumo/engineering/standards/design-system",
+              "mokumo/engineering/standards/screen-audit",
+              "mokumo/engineering/standards/ux-heuristics"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "mokumo/engineering/guides/app-flow-standard",
+              "mokumo/engineering/guides/ss-api-reference"
+            ]
+          },
+          {
+            "group": "Process",
+            "pages": [
+              "mokumo/process/how-we-work",
+              "mokumo/process/pm"
+            ]
+          },
+          {
+            "group": "Releases",
+            "pages": [
+              "mokumo/process/changelog/changelog"
             ]
           }
         ]
@@ -142,7 +148,8 @@
           {
             "group": "Overview",
             "pages": [
-              "renshin/docs/introduction"
+              "renshin/docs/introduction",
+              "renshin/docs/vision"
             ]
           },
           {
