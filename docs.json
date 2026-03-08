@@ -27,88 +27,88 @@
         ]
       },
       {
-        "tab": "Screen Print Pro",
+        "tab": "Mokumo",
         "groups": [
           {
             "group": "Overview",
             "pages": [
-              "screen-print-pro/introduction",
-              "screen-print-pro/product/product-design",
-              "screen-print-pro/product/prd"
+              "mokumo/introduction",
+              "mokumo/product/product-design",
+              "mokumo/product/prd"
             ]
           },
           {
             "group": "User Experience",
             "pages": [
-              "screen-print-pro/product/user-journeys",
-              "screen-print-pro/product/interaction-design",
-              "screen-print-pro/product/design-vision"
+              "mokumo/product/user-journeys",
+              "mokumo/product/interaction-design",
+              "mokumo/product/design-vision"
             ]
           },
           {
             "group": "Domain",
             "pages": [
-              "screen-print-pro/product/domain-glossary"
+              "mokumo/product/domain-glossary"
             ]
           },
           {
             "group": "Architecture",
             "pages": [
-              "screen-print-pro/engineering/architecture/tech-stack",
-              "screen-print-pro/engineering/architecture/system-architecture",
-              "screen-print-pro/engineering/architecture/app-flow",
-              "screen-print-pro/engineering/architecture/app-ia",
-              "screen-print-pro/engineering/architecture/ddd-strategy",
-              "screen-print-pro/engineering/architecture/infrastructure"
+              "mokumo/engineering/architecture/tech-stack",
+              "mokumo/engineering/architecture/system-architecture",
+              "mokumo/engineering/architecture/app-flow",
+              "mokumo/engineering/architecture/app-ia",
+              "mokumo/engineering/architecture/ddd-strategy",
+              "mokumo/engineering/architecture/infrastructure"
             ]
           },
           {
             "group": "Standards",
             "pages": [
-              "screen-print-pro/engineering/standards/coding-standards",
-              "screen-print-pro/engineering/standards/testing-strategy",
-              "screen-print-pro/engineering/standards/design-system",
-              "screen-print-pro/engineering/standards/screen-audit",
-              "screen-print-pro/engineering/standards/ux-heuristics"
+              "mokumo/engineering/standards/coding-standards",
+              "mokumo/engineering/standards/testing-strategy",
+              "mokumo/engineering/standards/design-system",
+              "mokumo/engineering/standards/screen-audit",
+              "mokumo/engineering/standards/ux-heuristics"
             ]
           },
           {
             "group": "Guides",
             "pages": [
-              "screen-print-pro/engineering/guides/app-flow-standard",
-              "screen-print-pro/engineering/guides/ss-api-reference"
+              "mokumo/engineering/guides/app-flow-standard",
+              "mokumo/engineering/guides/ss-api-reference"
             ]
           },
           {
             "group": "Process",
             "pages": [
-              "screen-print-pro/process/how-we-work",
-              "screen-print-pro/process/pm"
+              "mokumo/process/how-we-work",
+              "mokumo/process/pm"
             ]
           },
           {
             "group": "Releases",
             "pages": [
-              "screen-print-pro/process/releases"
+              "mokumo/process/releases"
             ]
           },
           {
             "group": "Roadmap",
             "pages": [
-              "screen-print-pro/roadmap/phase-2",
-              "screen-print-pro/roadmap/projects"
+              "mokumo/roadmap/phase-2",
+              "mokumo/roadmap/projects"
             ]
           },
           {
             "group": "Research",
             "pages": [
-              "screen-print-pro/research/competitive-analysis",
-              "screen-print-pro/research/supplier-catalog",
-              "screen-print-pro/research/quoting-pricing",
-              "screen-print-pro/research/production-workflow",
-              "screen-print-pro/research/customer-portal",
-              "screen-print-pro/research/infrastructure-decisions",
-              "screen-print-pro/research/artwork-management"
+              "mokumo/research/competitive-analysis",
+              "mokumo/research/supplier-catalog",
+              "mokumo/research/quoting-pricing",
+              "mokumo/research/production-workflow",
+              "mokumo/research/customer-portal",
+              "mokumo/research/infrastructure-decisions",
+              "mokumo/research/artwork-management"
             ]
           }
         ]

@@ -31,7 +31,7 @@ jobs:
           cp -r breezy-bays-labs /tmp/base-breezy-bays-labs
 
           # Clone source repos
-          git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
+          git clone --depth=1 https://github.com/cmbays/mokumo.git /tmp/mokumo
           git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
           git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/soji.git" /tmp/soji
           git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/tankyu.git" /tmp/tankyu
@@ -47,22 +47,13 @@ jobs:
           cp -r /tmp/base-breezy-bays-labs/. breezy-bays-labs/
 
           # Clean existing aggregated content
-          rm -rf screen-print-pro kata soji tankyu renshin
+          rm -rf mokumo kata soji tankyu renshin
 
-          # Copy print-4ink docs (from docs-site/ subdirectory)
-          cp -r /tmp/print-4ink/docs-site screen-print-pro
+          # Copy mokumo docs (from docs-site/ subdirectory — no symlinks, all real files)
+          cp -r /tmp/mokumo/docs-site mokumo
 
-          # Resolve symlinks — print-4ink uses symlinks to docs/ outside docs-site/
-          find screen-print-pro -type l | while read link; do
-            target=$(readlink -f "/tmp/print-4ink/docs-site/$(echo "$link" | sed 's|^screen-print-pro/||')" 2>/dev/null || true)
-            if [ -f "$target" ]; then
-              rm "$link"
-              cp "$target" "$link"
-            fi
-          done
-
-          # Remove print-4ink's local docs.json (we use the base repo's config)
-          rm -f screen-print-pro/docs.json screen-print-pro/mint.json
+          # Remove mokumo's local docs.json (we use the base repo's config)
+          rm -f mokumo/docs.json mokumo/mint.json
 
           # Copy kata docs (from docs-site/ subdirectory)
           cp -r /tmp/kata/docs-site kata
