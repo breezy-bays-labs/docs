@@ -20,37 +20,67 @@ jobs:
       - name: Aggregate docs from source repos
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_AGGREGATE_TOKEN }}
+          CMBAYS_PAT: ${{ secrets.CMBAYS_PAT }}
         run: |
           set -euo pipefail
 
-          # Clone source repos (shallow, public — token used for push only)
-          git clone --depth=1 https://github.com/cmbays/print-4ink.git /tmp/print-4ink
+          # Save base repo files from main before switching branches
+          cp docs.json /tmp/base-docs.json
+          cp introduction.mdx /tmp/base-introduction.mdx
+          cp -r images /tmp/base-images
+          cp -r breezy-bays-labs /tmp/base-breezy-bays-labs
+
+          # Clone source repos
+          git clone --depth=1 https://github.com/cmbays/mokumo.git /tmp/mokumo
           git clone --depth=1 https://github.com/cmbays/kata.git /tmp/kata
+          git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/soji.git" /tmp/soji
+          git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/tankyu.git" /tmp/tankyu
+          git clone --depth=1 "https://x-access-token:${CMBAYS_PAT}@github.com/cmbays/renshin.git" /tmp/renshin
 
           # Prepare the docs branch
           git fetch origin docs 2>/dev/null && git checkout docs || git checkout -b docs
 
-          # Clean existing aggregated content (preserve base repo files)
-          rm -rf screen-print-pro kata
+          # Restore base files from main
+          cp /tmp/base-docs.json docs.json
+          cp /tmp/base-introduction.mdx introduction.mdx
+          cp -r /tmp/base-images/. images/
+          cp -r /tmp/base-breezy-bays-labs/. breezy-bays-labs/
 
-          # Copy print-4ink docs (from docs-site/ subdirectory)
-          cp -r /tmp/print-4ink/docs-site screen-print-pro
+          # Clean existing aggregated content
+          rm -rf mokumo kata soji tankyu renshin
 
-          # Resolve symlinks — print-4ink uses symlinks to docs/ outside docs-site/
-          find screen-print-pro -type l | while read link; do
-            target=$(readlink -f "/tmp/print-4ink/docs-site/$(echo "$link" | sed 's|^screen-print-pro/||')" 2>/dev/null || true)
+          # Copy mokumo docs (from docs-site/ subdirectory — no symlinks, all real files)
+          cp -r /tmp/mokumo/docs-site mokumo
+
+          # Remove mokumo's local docs.json (we use the base repo's config)
+          rm -f mokumo/docs.json mokumo/mint.json
+
+          # Copy kata docs (from docs-site/ subdirectory)
+          cp -r /tmp/kata/docs-site kata
+
+          # Resolve symlinks — kata uses symlinks to docs/ and skill/ outside docs-site/
+          find kata -type l | while read link; do
+            target=$(readlink -f "/tmp/kata/docs-site/$(echo "$link" | sed 's|^kata/||')" 2>/dev/null || true)
             if [ -f "$target" ]; then
               rm "$link"
               cp "$target" "$link"
             fi
           done
 
-          # Remove print-4ink's local docs.json (we use the base repo's config)
-          rm -f screen-print-pro/docs.json screen-print-pro/mint.json
+          # Remove kata's local docs.json (we use the base repo's config)
+          rm -f kata/docs.json kata/mint.json
 
-          # Copy kata docs (entire repo minus .git and non-doc files)
-          mkdir -p kata
-          cp -r /tmp/kata/docs /tmp/kata/skill /tmp/kata/changelog.md /tmp/kata/CONTRIBUTING.md kata/ 2>/dev/null || true
+          # --- Soji ---
+          mkdir -p soji
+          cp -r /tmp/soji/docs soji/
+
+          # --- Tankyu ---
+          mkdir -p tankyu
+          cp -r /tmp/tankyu/docs tankyu/
+
+          # --- Renshin ---
+          mkdir -p renshin
+          cp -r /tmp/renshin/docs renshin/
 
           echo "=== Aggregated structure ==="
           find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -60
