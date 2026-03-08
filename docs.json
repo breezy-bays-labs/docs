@@ -50,9 +50,7 @@
           {
             "group": "User Experience",
             "pages": [
-              "mokumo/product/user-journeys",
-              "mokumo/product/interaction-design",
-              "mokumo/product/design-vision"
+              "mokumo/product/user-journeys"
             ]
           },
           {
@@ -85,7 +83,8 @@
               "mokumo/engineering/architecture/app-flow",
               "mokumo/engineering/architecture/app-ia",
               "mokumo/engineering/architecture/ddd-strategy",
-              "mokumo/engineering/architecture/infrastructure"
+              "mokumo/engineering/architecture/infrastructure",
+              "mokumo/product/design-vision"
             ]
           },
           {
