@@ -23,6 +23,16 @@
               "breezy-bays-labs/process",
               "breezy-bays-labs/decisions"
             ]
+          },
+          {
+            "group": "Design System",
+            "pages": [
+              "breezy-bays-labs/design-system/introduction",
+              "breezy-bays-labs/design-system/foundations",
+              "breezy-bays-labs/design-system/component-model",
+              "breezy-bays-labs/design-system/implementation-stack",
+              "breezy-bays-labs/design-system/accessibility-and-quality"
+            ]
           }
         ]
       },
@@ -33,22 +43,36 @@
             "group": "Overview",
             "pages": [
               "mokumo/introduction",
-              "mokumo/product/product-design",
-              "mokumo/product/prd"
+              "mokumo/product/vision",
+              "mokumo/product/product-design"
             ]
           },
           {
             "group": "User Experience",
             "pages": [
-              "mokumo/product/user-journeys",
-              "mokumo/product/interaction-design",
-              "mokumo/product/design-vision"
+              "mokumo/product/user-journeys"
             ]
           },
           {
             "group": "Domain",
             "pages": [
               "mokumo/product/domain-glossary"
+            ]
+          },
+          {
+            "group": "Roadmap",
+            "pages": [
+              "mokumo/roadmap/overview",
+              "mokumo/roadmap/m0-foundation",
+              "mokumo/roadmap/m1-core-data",
+              "mokumo/roadmap/m2-quote-to-cash",
+              "mokumo/roadmap/m3-operational-depth",
+              "mokumo/roadmap/m4-multi-service",
+              "mokumo/roadmap/m5-analytics",
+              "mokumo/roadmap/m6-polish-onboarding",
+              "mokumo/roadmap/m7-hardening",
+              "mokumo/roadmap/m8-beta-readiness",
+              "mokumo/roadmap/m9-beta-launch"
             ]
           },
           {
@@ -59,7 +83,8 @@
               "mokumo/engineering/architecture/app-flow",
               "mokumo/engineering/architecture/app-ia",
               "mokumo/engineering/architecture/ddd-strategy",
-              "mokumo/engineering/architecture/infrastructure"
+              "mokumo/engineering/architecture/infrastructure",
+              "mokumo/product/design-vision"
             ]
           },
           {
@@ -89,26 +114,7 @@
           {
             "group": "Releases",
             "pages": [
-              "mokumo/process/releases"
-            ]
-          },
-          {
-            "group": "Roadmap",
-            "pages": [
-              "mokumo/roadmap/phase-2",
-              "mokumo/roadmap/projects"
-            ]
-          },
-          {
-            "group": "Research",
-            "pages": [
-              "mokumo/research/competitive-analysis",
-              "mokumo/research/supplier-catalog",
-              "mokumo/research/quoting-pricing",
-              "mokumo/research/production-workflow",
-              "mokumo/research/customer-portal",
-              "mokumo/research/infrastructure-decisions",
-              "mokumo/research/artwork-management"
+              "mokumo/process/changelog/changelog"
             ]
           }
         ]
@@ -142,7 +148,8 @@
           {
             "group": "Overview",
             "pages": [
-              "renshin/docs/introduction"
+              "renshin/docs/introduction",
+              "renshin/docs/vision"
             ]
           },
           {

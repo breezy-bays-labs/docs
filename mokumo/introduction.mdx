@@ -1,0 +1,62 @@
+---
+title: Mokumo
+description: Production management software for decorated apparel shops. Full garment lifecycle from quote to shipment.
+---
+
+# Mokumo
+
+Production management software for **decorated apparel shops**. Manages the full garment lifecycle:
+
+**Quote → Artwork Approval → Production → Shipping → Invoice**
+
+## What This Is
+
+Mokumo replaces spreadsheets, text messages, and memory with a unified production dashboard. The shop owner gets instant clarity on job status, blocked items, and next actions.
+
+## Who It's For
+
+**Primary user**: Shop owner/operator running a small decorated apparel business (1-5 employees), managing 5-20 active jobs at any time. Values speed and clarity over feature count.
+
+## Service Types
+
+The system supports three decoration methods, each with its own quoting flow and production pipeline:
+
+| Service                  | Description                                   | Production Steps                          |
+| ------------------------ | --------------------------------------------- | ----------------------------------------- |
+| **Screen Printing**      | Traditional ink-on-garment via burned screens | Art → Film → Burn → Register → Press → QC |
+| **DTF (Direct to Film)** | Transfer film printed and applied to garments | Art → Gang Sheet → Print → Press → QC     |
+| **DTF Press**            | Shop presses customer-supplied DTF transfers  | Receive → Press → QC                      |
+
+## Current Phase
+
+Building V1 — milestone-driven vertical builds. See [Roadmap](/roadmap/overview) for current progress.
+
+## Documentation Structure
+
+<CardGroup cols={2}>
+  <Card title="Product Design" href="/product/product-design">
+    Problem statement, scope, constraints, and success criteria for Phase 2.
+  </Card>
+  <Card title="User Journeys" href="/product/user-journeys">
+    How users move through the system to accomplish their goals.
+  </Card>
+  <Card title="Architecture" href="/engineering/architecture/tech-stack">
+    Tech stack, data model, infrastructure decisions.
+  </Card>
+  <Card title="Roadmap" href="/roadmap/overview">
+    Projects, milestones, and dependencies.
+  </Card>
+</CardGroup>
+
+## Tech Stack (Summary)
+
+| Layer        | Technology                                     |
+| ------------ | ---------------------------------------------- |
+| Framework    | Next.js 16 (App Router, TypeScript, Turbopack) |
+| Styling      | Tailwind CSS v4 + shadcn/ui                    |
+| Database     | Supabase PostgreSQL + Drizzle ORM              |
+| Auth         | Supabase Auth (email/password)                 |
+| Cache        | Upstash Redis                                  |
+| Analytics    | dbt-core (medallion pipeline)                  |
+| Deployment   | Vercel (preview on main, production branch)    |
+| Supplier API | S&S Activewear REST V2                         |
