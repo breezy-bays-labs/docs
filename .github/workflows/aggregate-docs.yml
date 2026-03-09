@@ -92,7 +92,7 @@ jobs:
           cp -r /tmp/renshin/docs renshin/
 
           echo "=== Aggregated structure ==="
-          find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -60
+          find . -maxdepth 3 -not -path './.git/*' -not -path './node_modules/*' | head -60 || true
 
       - name: Commit and push
         env:
