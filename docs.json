@@ -76,6 +76,40 @@
             ]
           },
           {
+            "group": "Decisions",
+            "pages": [
+              "mokumo/engineering/decisions/adr-001-status-model",
+              "mokumo/engineering/decisions/adr-002-soft-delete",
+              "mokumo/engineering/decisions/adr-003-sequence-numbers",
+              "mokumo/engineering/decisions/adr-004-sort-order",
+              "mokumo/engineering/decisions/adr-005-service-type-polymorphism",
+              "mokumo/engineering/decisions/adr-006-financial-precision",
+              "mokumo/engineering/decisions/adr-007-vercel-hosting",
+              "mokumo/engineering/decisions/adr-008-supabase-platform",
+              "mokumo/engineering/decisions/adr-009-upstash-redis",
+              "mokumo/engineering/decisions/adr-010-resend-email",
+              "mokumo/engineering/decisions/adr-011-file-upload-service",
+              "mokumo/engineering/decisions/adr-012-qstash-background-jobs",
+              "mokumo/engineering/decisions/adr-013-drizzle-orm",
+              "mokumo/engineering/decisions/adr-014-clean-architecture",
+              "mokumo/engineering/decisions/adr-015-zod-first-schema",
+              "mokumo/engineering/decisions/adr-016-rest-api-design",
+              "mokumo/engineering/decisions/adr-017-state-management",
+              "mokumo/engineering/decisions/adr-018-no-trpc",
+              "mokumo/engineering/decisions/adr-019-state-transition-guards",
+              "mokumo/engineering/decisions/adr-020-two-tier-caching",
+              "mokumo/engineering/decisions/adr-021-dal-supplier-adapter",
+              "mokumo/engineering/decisions/adr-022-stripe-payments",
+              "mokumo/engineering/decisions/adr-023-sentry-error-tracking",
+              "mokumo/engineering/decisions/adr-024-posthog-analytics",
+              "mokumo/engineering/decisions/adr-025-shadcn-ui",
+              "mokumo/engineering/decisions/adr-026-storybook",
+              "mokumo/engineering/decisions/adr-027-performance-monitoring",
+              "mokumo/engineering/decisions/adr-028-rls-permission-claims",
+              "mokumo/engineering/decisions/adr-029-quote-to-invoice-clone"
+            ]
+          },
+          {
             "group": "Architecture",
             "pages": [
               "mokumo/engineering/architecture/tech-stack",
