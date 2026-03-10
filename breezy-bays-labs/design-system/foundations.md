@@ -56,3 +56,22 @@ Every screen and reusable pattern should account for:
 - success
 
 The system is not complete if only the happy path has been designed.
+
+## Token Architecture
+
+The system uses a four-layer token model:
+
+1. **Foundation** — Mode-aware tokens for surfaces, text hierarchy, status colors, borders, and spacing. These form the baseline that all products inherit.
+2. **Categorical** — Entity and service identity colors. Each domain concept receives a stable color that persists across modes and personalities.
+3. **Semantic** — Purpose-driven tokens that extend the foundation for gaps the base layer does not cover. Names stay stable; values adapt to personality and mode.
+4. **Personality** — Visual expression overrides applied at the root level. A personality changes how the system renders without changing what the system communicates.
+
+Tokens are consumed through utility classes. Raw values are never used in component code.
+
+## Personality System
+
+The system supports multiple visual personalities — distinct aesthetic treatments that share the same underlying architecture. Each personality defines its own surface treatments, accent styles, shadow behavior, and motion character.
+
+Personalities are additive: the foundation and categorical layers remain stable, while the semantic and personality layers adapt. Adding a personality requires one override definition and one registry entry. No component code changes.
+
+This allows a single product to offer distinct visual experiences — or multiple products to share the same design system with different brand expressions.
