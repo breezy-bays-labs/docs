@@ -94,20 +94,18 @@ We chose GitHub Issues over Linear, Jira, and Notion. The reasoning:
 - **No sync tax** — one source of truth. Linear/Jira require bidirectional sync with GitHub, which always drifts.
 - **Lower lock-in** — issues are Markdown. Exportable, readable, version-controlled.
 
-### The 5-Dimension Label Taxonomy
+### Label Taxonomy
 
-Labels are the organizational backbone. Every issue needs three: `type/*` + `priority/*` + one scope label (`product/*`, `domain/*`, or `tool/*`).
+Labels are the organizational backbone. Every issue needs two: `type:*` + `priority:*`. Add `domain:*` when the work touches app domain code.
 
-| Dimension               | Purpose             | Examples                                             |
-| ----------------------- | ------------------- | ---------------------------------------------------- |
-| `type/*`                | What kind of work   | feature, bug, research, tech-debt, refactor, tooling |
-| `priority/*`            | When to do it       | now, next, later, low, icebox                        |
-| `product/*`             | Things users DO     | quotes, jobs, customers, invoices, dashboard         |
-| `domain/*`              | Things products USE | garments, pricing, colors, dtf, screens              |
-| `tool/*`                | How we BUILD        | work-orchestrator, ci-pipeline, pm-system            |
-| `pipeline/*` (optional) | Pipeline type       | vertical, horizontal, polish, bug-fix                |
-| `phase/*` (optional)    | Which project phase | 1, 2, 3                                              |
-| `source/*` (optional)   | How we found it     | interview, testing, review, cool-down                |
+| Namespace             | Purpose                         | Values                                                                              |
+| --------------------- | ------------------------------- | ----------------------------------------------------------------------------------- |
+| `type:*` (required)   | What kind of work               | feature, bug, chore, research, design, docs, polish                                 |
+| `priority:*` (req.)   | When to do it                   | now, soon, later                                                                    |
+| `domain:*` (rec.)     | Which app domain                | customers, garments, colors, screens, pricing, artwork, dtf, quotes, jobs, invoices |
+| `area:*` (optional)   | Org-wide cross-cutting concerns | ci, docs, deps, mobile                                                              |
+| `phase:*` (optional)  | Which project phase             | 1, 2, 3                                                                             |
+| `status:*` (optional) | Workflow status                 | triage, blocked, needs-input, in-progress                                           |
 
 Labels encode stable categorical metadata. Runtime state (status, effort, pipeline stage) lives on board fields.
 
@@ -118,11 +116,11 @@ The [Mokumo board](https://github.com/users/cmbays/projects/4) is the visual lay
 | View             | Layout                          | Purpose                        |
 | ---------------- | ------------------------------- | ------------------------------ |
 | Board            | Kanban by Status                | See workflow state at a glance |
-| By Product       | Table grouped by Product        | Scope per product area         |
+| By Domain        | Table grouped by Domain         | Scope per domain area          |
 | Pipeline Tracker | Table grouped by Pipeline Stage | Track active pipelines         |
 | Roadmap          | Timeline                        | Visual planning                |
 
-The board has 8 custom fields: Status, Priority, Product, Tool, Pipeline ID, Pipeline Stage, Effort, Phase.
+The board has 7 custom fields: Status, Priority, Domain, Pipeline ID, Pipeline Stage, Effort, Phase.
 
 ### Issue Templates
 
@@ -130,10 +128,10 @@ Four YAML issue forms enforce consistent structure:
 
 | Template        | Auto-Label      | Purpose                                    |
 | --------------- | --------------- | ------------------------------------------ |
-| Feature Request | `type/feature`  | New functionality with acceptance criteria |
-| Bug Report      | `type/bug`      | Something broken, with reproduction steps  |
-| Research Task   | `type/research` | Investigation with specific questions      |
-| Tracking Issue  | `type/tooling`  | Multi-part coordination with sub-issues    |
+| Feature Request | `type:feature`  | New functionality with acceptance criteria |
+| Bug Report      | `type:bug`      | Something broken, with reproduction steps  |
+| Research Task   | `type:research` | Investigation with specific questions      |
+| Tracking Issue  | `type:chore`    | Multi-part coordination with sub-issues    |
 
 Blank issues are disabled. All issues go through a template.
 
@@ -145,11 +143,11 @@ Milestones represent deadline-scoped batches — the "D-Day" pattern. A mileston
 
 Three automated layers:
 
-| Action              | Trigger                | Effect                                                          |
-| ------------------- | ---------------------- | --------------------------------------------------------------- |
-| Auto-add to project | Issue/PR opened        | Every new item appears on the board                             |
-| PR Labeler          | PR opened/synced       | `product/*` / `domain/*` / `tool/*` labels applied by file path |
-| Template labels     | Issue created via form | `type/*` label from template config                             |
+| Action              | Trigger                | Effect                                            |
+| ------------------- | ---------------------- | ------------------------------------------------- |
+| Auto-add to project | Issue/PR opened        | Every new item appears on the board               |
+| PR Labeler          | PR opened/synced       | `domain:*` / `area:*` labels applied by file path |
+| Template labels     | Issue created via form | `type:*` label from template config               |
 
 ### `work progress`
 
@@ -180,16 +178,15 @@ Each level builds on the previous. We don't skip levels — each one validates t
 
 How the tools work together:
 
-| Tool                  | Location                    | Purpose                                                                   |
-| --------------------- | --------------------------- | ------------------------------------------------------------------------- |
-| **Work Orchestrator** | `scripts/work.sh`           | Session lifecycle — worktrees, Zellij, Claude launch, progress reporting  |
-| **Skills Framework**  | `.claude/skills/`           | Domain expertise containers — shaping, breadboarding, quality gates       |
-| **Agent System**      | `.claude/agents/`           | Specialized AI assistants with own context windows                        |
-| **Knowledge Base**    | `knowledge-base/`           | Astro-powered institutional memory — pipelines, tools, products, strategy |
-| **CI Pipeline**       | `.github/workflows/`        | Auto-add, auto-label, CI checks                                           |
-| **PM System**         | GitHub Issues + Projects v2 | Labels, board, milestones, templates — the coordination backbone          |
+| Tool                 | Location                    | Purpose                                                             |
+| -------------------- | --------------------------- | ------------------------------------------------------------------- |
+| **Skills Framework** | `.claude/skills/`           | Domain expertise containers — shaping, breadboarding, quality gates |
+| **Agent System**     | `.claude/agents/`           | Specialized AI assistants with own context windows                  |
+| **Docs Site**        | `docs-site/`                | Mintlify-powered product and engineering documentation              |
+| **CI Pipeline**      | `.github/workflows/`        | Auto-add, auto-label, CI checks                                     |
+| **PM System**        | GitHub Issues + Projects v2 | Labels, board, milestones, templates — the coordination backbone    |
 
-The Work Orchestrator creates the execution environment. Skills and agents provide domain expertise. The Knowledge Base provides institutional memory. The CI Pipeline automates sync. The PM System provides the coordination layer. Each tool has its own KB docs in `knowledge-base/src/content/tools/`.
+Skills and agents provide domain expertise. The Docs Site provides documentation. The CI Pipeline automates sync. The PM System provides the coordination layer.
 
 ---
 
@@ -246,7 +243,6 @@ Well within Hobby plan limits.
 
 - Worktree workflow — identical
 - PR process — identical (still merge to `main`)
-- `work.sh` orchestrator — no changes needed
 - Stacked PRs — still work the same
 
 The ONLY new step: when you want to update the live app, merge `main` into `production`.
