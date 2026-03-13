@@ -36,6 +36,28 @@ The reasoning: a rounding error in a price calculation costs real money and erod
 
 Domain rules and financial calculations are written test-first. The test defines the expected behavior before the implementation exists. This is not optional for critical-risk code — it's the only way to ensure the implementation matches the specification rather than the other way around.
 
+### CRAP Analysis: Identifying Risky Functions
+
+Before running mutation tests, identify which functions are most at risk using CRAP analysis.
+[crap4ts](https://github.com/breezy-bays-labs/crap4ts) computes per-function CRAP scores
+that combine cyclomatic complexity with test coverage.
+
+**CRAP(m) = CC(m)² × (1 - cov(m)/100)³ + CC(m)**
+
+A high CRAP score means a function is both complex AND poorly tested — risky to change.
+The formula has a critical property: you cannot test your way out of complexity.
+At CC=12, even 100% coverage produces CRAP=12.
+
+| Risk Level | CRAP Score | Action |
+|------------|:----------:|--------|
+| Low | ≤ 5 | No action needed |
+| Acceptable | ≤ 8 | Monitor |
+| Moderate | ≤ 30 | Prioritize for refactoring or better test coverage |
+| High | > 30 | Decompose — function is too complex to safely change |
+
+CRAP analysis fits between TDD and mutation testing in the quality loop:
+BDD scenarios → TDD → **CRAP ≤ 8** → Mutation testing → Architecture enforcement
+
 ### Mutation Testing: Verifying Test Quality
 
 Coverage tells you what code your tests *execute*. Mutation testing tells you what code your tests *actually verify*. A test suite can hit 100% line coverage while asserting nothing meaningful — mutation testing catches this.
